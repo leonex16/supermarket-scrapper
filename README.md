@@ -18,6 +18,8 @@
 
 - **docs:** Add or update documentation.
 
+- **arch:** Architecture change.
+
 ### Examples
 
 a. **Commit message with description and breaking change footer**
@@ -65,18 +67,17 @@ g. **Commit message with multi-paragraph body and multiple footers**
 
 ```npm run commit```
 
-
 ### Emoji for type commit
 
-| Commit Type     | Emoji Code | Emoji |
-| --------------- | ---------- | ----- |
-| fix             | :bug:      | 🐛    |
-| feat            | :sparkles: | ⚡️   |
-| BREAKING CHANGE | :boom:     | 💥    |
-| style           | :art:      | 🎨    |
-| refactor        | :recycle:  | ♻️    |
-| init            | :tada:     | 🎉    |
-| finish          | :rocket:   | 🚀    |
-| docs            | :memo:     | 📝    |
-| arch | :building_construction: | | 
+| Commit Type     | Emoji                   |
+|-----------------|-------------------------|
+| fix             | :bug:                   |
+| feat            | :sparkles:              |
+| BREAKING CHANGE | :boom:                  |
+| style           | :art:                   |
+| refactor        | :recycle:               |
+| init            | :tada:                  |
+| finish          | :rocket:                |
+| docs            | :memo:                  |
+| arch            | :building_construction: |
 
