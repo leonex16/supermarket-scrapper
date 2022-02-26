@@ -82,5 +82,5 @@ g. **Commit message with multi-paragraph body and multiple footers**
 | finish          | :rocket:                     |
 | docs            | :memo:                       |
 | arch            | :building_construction:      |
-| build           | **triangular_flag_on_post:** |
+| build           | :triangular_flag_on_post:    |
 
