@@ -12,7 +12,8 @@
   "scripts": {
     "app:start": "npm run start --workspace=application",
     "app:test": "npm run test --workspace=application",
-    "app:build": "npm run build --workspace=application"
+    "app:build": "npm run build --workspace=application",
+    "commit": "npx gitmoji-cli -c"
   },
   "repository": {
     "type": "git",
