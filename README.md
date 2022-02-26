@@ -1,5 +1,9 @@
 # supermarket-scrapper-front
 
+## setup project 
+
+` npm install --force `
+
 ## Conventional Commits
 
 - **init:** First commit of the project.
