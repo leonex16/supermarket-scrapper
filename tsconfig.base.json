@@ -13,12 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@Application": ["./application"],
-      "@Domain": ["./domain"],
-      "@Infrastructure": ["./infrastructure"],
-    }
+    // "paths": {
+    //   "@Application/*": ["/*"],
+    //   "@Domain/*": ["domain/src/*"],
+    //   "@Infrastructure/*": ["infrastructure/src/*"],
+    // }
   }
-  
 }

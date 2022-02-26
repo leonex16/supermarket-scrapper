@@ -6,13 +6,13 @@
       "esnext"
     ],
     "jsx": "react-jsx",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@Pages/*": [ "pages/*" ],
+      "@Common/*": [ "common/*" ],
     }
   },
   "include": [
-    "src/**/*"
+    "**/*"
   ],
   "extends": "../tsconfig.base.json"
 }
