@@ -69,7 +69,7 @@ g. **Commit message with multi-paragraph body and multiple footers**
     Reviewed-by: Z
     Refs: #123
 
-## Setup gitmoji
+## Create a commit
 
 ```npm run commit```
 
