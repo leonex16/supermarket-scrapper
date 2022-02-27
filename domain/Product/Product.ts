@@ -1,5 +1,5 @@
 import { Name } from './valuesObjects/Name'
-import { Description } from './valuesObjects/Decription'
+import { Description } from './valuesObjects/Description'
 
 export class Product {
     
