@@ -26,6 +26,8 @@
 
 - **arch:** Architecture change.
 
+- **package:** Add or update a library or package.
+
 ### Examples
 
 a. **Commit message with description and breaking change footer**
@@ -87,4 +89,5 @@ g. **Commit message with multi-paragraph body and multiple footers**
 | docs            | :memo:                       |
 | arch            | :building_construction:      |
 | build           | :triangular_flag_on_post:    |
+| package         | :package:                    |
 
