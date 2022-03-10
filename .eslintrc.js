@@ -41,6 +41,7 @@ module.exports = {
     'object-curly-spacing': [RULE.ERROR, 'always'],
     'sort-imports': [RULE.ERROR, { allowSeparatedGroups: true, memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'] }],
     'react/jsx-filename-extension': [RULE.ERROR, { extensions: ['.jsx', '.tsx'] }],
-    'react/react-in-jsx-scope': RULE.OFF
+    'react/react-in-jsx-scope': RULE.OFF,
+    'no-plusplus': RULE.OFF,
   },
 };
