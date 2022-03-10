@@ -9,6 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "@Common/*": [ "Common/*" ],
+      "@Entities/*": [ "Entities/*" ],
     }
   },
   "include": [
