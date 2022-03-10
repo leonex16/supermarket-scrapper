@@ -29,8 +29,8 @@ export class Product extends Entity {
 
   private _source: Source;
 
-  constructor(UUID: UUID, product: ProductParams) {
-    super(UUID);
+  constructor( uuid: UUID, product: ProductParams ) {
+    super( uuid );
     this._name = product.name;
     this._description = product.description;
     this._detail = product.detail;
