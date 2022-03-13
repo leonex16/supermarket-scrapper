@@ -10,9 +10,10 @@
     "npm": "8.3.1"
   },
   "scripts": {
-    "app:start": "npm run start --workspace=application",
-    "app:test": "npm run test --workspace=application",
-    "app:build": "npm run build --workspace=application",
+    "app:postcss": "npm run postcss --workspace=Application",
+    "app:start": "npm run start --workspace=Application",
+    "app:test": "npm run test --workspace=Application",
+    "app:build": "npm run build --workspace=Application",
     "commit": "npx gitmoji-cli -c"
   },
   "repository": {
