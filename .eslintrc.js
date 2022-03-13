@@ -1,9 +1,11 @@
 const RULE = {
   OFF: 'off',
+  WARN: 'warn',
   ERROR: 'error',
 };
 
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -33,7 +35,7 @@ module.exports = {
     'import/no-unresolved': RULE.OFF,
     'import/extensions': RULE.OFF,
     'no-underscore-dangle': RULE.OFF,
-    'require-jsdoc': RULE.OFF,
+    'require-jsdoc': RULE.WARN,
     'max-len': [RULE.ERROR, { code: 160, comments: 80 }],
     indent: [RULE.ERROR, 2],
     'arrow-parens': [RULE.ERROR, 'as-needed'],
