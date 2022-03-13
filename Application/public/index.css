@@ -1,0 +1,67 @@
+@font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../../fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../../fonts/Poppins-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../fonts/Poppins-Italic.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../../fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../../fonts/Poppins-LightItalic.ttf');
+}
+
+body { 
+  background-color: blue
+}
+
+body a {
+    color: red;
+  }
+
+a {
+  display: flex;
+}
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.myGrid {
+  display: grid;
+  grid-template-columns: 12px 12px 12px;
+  grid-template-rows: 12px 12px 12px;
+  grid-column-gap: 1rem;
+  column-gap: 1rem; 
+}
