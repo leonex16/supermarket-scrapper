@@ -10,6 +10,7 @@
     "paths": {
       "@Pages/*": [ "pages/*" ],
       "@Assets/*": [ "assets/*" ],
+      "@Components/*": [ "components/*" ],
     }
   },
   "include": [
