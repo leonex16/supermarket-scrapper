@@ -14,7 +14,7 @@
     "react-scripts": "5.0.0"
   },
   "scripts": {
-    "postcss": "postcss --config postcss.config.js src/assets/styles/main.pcss -o public/index.css --watch",
+    "postcss": "postcss --config postcss.config.js src/assets/styles/*.pcss -o public/index.css --watch",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test"
@@ -37,10 +37,6 @@
     "postcss": "^8.4.8",
     "postcss-cli": "^9.1.0",
     "postcss-import": "^14.0.2",
-    "precss": "^4.0.0",
-    "stylelint": "^14.5.3",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^25.0.0",
-    "tailwindcss": "^3.0.23"
+    "precss": "^4.0.0"
   }
 }
