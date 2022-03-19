@@ -2,9 +2,8 @@
   "name": "infrastructure",
   "version": "0.1.0",
   "private": true,
-  "type": "commonjs",
   "scripts": {
-    "start:inMemory": "t"
+    "build": "tsc -p ./tsconfig.json"
   },
   "dependencies": {
     "uuid": "^8.3.2"

@@ -2,7 +2,6 @@
   "name": "supermarket-scrapper-front",
   "version": "1.0.0",
   "private": "true",
-  "type": "commonjs",
   "workspaces": [
     "Application",
     "Infrastructure"
@@ -15,7 +14,7 @@
     "app:start": "npm run start --workspace=Application",
     "app:test": "npm run test --workspace=Application",
     "app:build": "npm run build --workspace=Application",
-    "infra:start": "npm run start --workspace=Infrastructure",
+    "infra:build": "npm run build --workspace=Infrastructure",
     "commit": "npx gitmoji-cli -c"
   },
   "repository": {
