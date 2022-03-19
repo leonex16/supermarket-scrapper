@@ -1,0 +1,19 @@
+[
+  {
+    "id": "basket-id",
+    "items": [
+      {
+        "id": "product-id",
+        "name": "product-name",
+        "description": "product-description",
+        "detail": {
+          "normalPrice": "product-normal-price",
+          "bestPrice": "product-best-price",
+          "unit": "product-unit"
+        },
+        "image": "https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url",
+        "source": "https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url"
+      }
+    ]
+  }
+]
