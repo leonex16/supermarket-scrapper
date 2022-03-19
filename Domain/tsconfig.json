@@ -5,8 +5,7 @@
     "outDir": "../.build",
     "baseUrl": ".",
     "paths": {
-      "@Common/*": [ "Common/*" ],
-      "@Entities/*": [ "Entities/*" ],
+      "@Domain/*": [ "../Domain/*" ]
     }
   },
   "extends": "../tsconfig.base"

@@ -1,17 +1,21 @@
 {
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  },
   "compilerOptions": {
+    "noEmit": false,
     "module": "CommonJS",
     "lib": ["esnext"],
     "outDir": "../.build",
     "baseUrl": ".",
     "paths": {
-      "@Domain/*": [ "../Domain/Entities/*" ],
-      "@Domain/Libraries/*": [ "../Domain/Common/Libraries/*" ],
-      "@Infrastructure/*": [ "../Infrastructure/*" ],
-    },
+      "@Domain/*": [ "../Domain/*" ],
+      "@Infrastructure/*": [ "../Infrastructure/*" ]
+    }
   },
   "files": [
-    "./app/consoleApp.ts",
+    "./apps/index.ts"
   ],
-  "extends": "../tsconfig.base",
+  "extends": "./../tsconfig.base.json"
 }

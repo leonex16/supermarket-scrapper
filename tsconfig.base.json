@@ -16,12 +16,12 @@
     "isolatedModules": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "alwaysStrict": true,
+    "alwaysStrict": true
     // "paths": {
     //   "@Application/*": ["/*"],
     //   "@Domain/*": ["domain/src/*"],
     //   "@Infrastructure/*": ["infrastructure/src/*"],
     // }
   },
-  "exclude": ["node_modules", "**/node_modules/*"],
+  "exclude": ["node_modules", "**/node_modules/*"]
 }
