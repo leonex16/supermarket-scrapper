@@ -1,14 +1,26 @@
-import { UUID } from "@Common/Gateways/UUID";
-
 export class Entity {
-  _id: string;
-  _createdAt: Date;
-  _updatedAt: Date;
+  protected _id: string;
 
-  constructor(UUID: UUID) {
-    this._id = UUID.generate();
+  protected _createdAt: Date;
+
+  protected _updatedAt: Date;
+
+  constructor( uuid: string ) {
+    this._id = uuid;
     this._createdAt = new Date();
     this._updatedAt = new Date();
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  set id( id: string ) {
+    this._id = id;
+  }
+
+  set updatedAt( updatedAt: Date ) {
+    this._updatedAt = updatedAt;
   }
 
 }
