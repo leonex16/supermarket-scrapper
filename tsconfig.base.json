@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "target": "ES2022",
+    "removeComments": true,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -12,11 +14,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
     // "paths": {
     //   "@Application/*": ["/*"],
     //   "@Domain/*": ["domain/src/*"],
     //   "@Infrastructure/*": ["infrastructure/src/*"],
     // }
-  }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"],
 }

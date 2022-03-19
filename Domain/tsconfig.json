@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    "lib": [
-      "esnext"
-    ],
+    "module": "CommonJS",
+    "lib": ["esnext"],
+    "outDir": "../.build",
     "baseUrl": ".",
     "paths": {
       "@Common/*": [ "Common/*" ],
       "@Entities/*": [ "Entities/*" ],
     }
   },
-  "include": [
-    "**/*"
-  ],
-  "extends": "../tsconfig.base.json"
+  "extends": "../tsconfig.base"
 }

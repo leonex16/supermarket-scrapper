@@ -1,20 +1,17 @@
 {
   "compilerOptions": {
-    "lib": [
-      "esnext"
-    ],
+    "module": "CommonJS",
+    "lib": ["esnext"],
+    "outDir": "../.build",
     "baseUrl": ".",
-    "outDir": "./dist",
     "paths": {
       "@Domain/*": [ "../Domain/Entities/*" ],
       "@Domain/Libraries/*": [ "../Domain/Common/Libraries/*" ],
       "@Infrastructure/*": [ "../Infrastructure/*" ],
-
     },
-    "resolveJsonModule": true,
   },
-  "include": [
-    "**/*"
+  "files": [
+    "./app/consoleApp.ts",
   ],
-  "extends": "../tsconfig.base.json",
+  "extends": "../tsconfig.base",
 }
