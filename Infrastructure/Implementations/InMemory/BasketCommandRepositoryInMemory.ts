@@ -1,20 +1,11 @@
-import { Basket } from '../../../Domain/Entities/Basket/Basket';
-import { Product, ProductParams } from '../../../Domain/Entities/Product/Product';
-import { BasketCommandRepository, BasketQueryRepository } from '../../../Domain/Entities/Basket/Respositories';
+import { Basket } from '@Domain/Entities/Basket/Basket';
+import { Product, ProductParams } from '@Domain/Entities/Product/Product';
+import { BasketCommandRepository, BasketQueryRepository } from '@Domain/Entities/Basket/Respositories';
 
-import { BasketQueryRepositoryInMemory } from './BasketQueryRepositoryInMemory';
-import { NotFoundException } from '../../Common/Exceptions';
-import { UUIDImplementation } from '../../Libraries/UUIDImplementation';
-import { findByIdAndRemove, logException } from '../../Common/Functions';
-
-// import { Basket } from '@Domain/Basket/Basket';
-// import { Product } from '@Domain/Product/Product';
-// import { BasketCommandRepository, BasketQueryRepository } from '@Domain/Basket/Respositories';
-
-// import { BasketQueryRepositoryInMemory } from '@Infrastructure/Implementations/InMemory/BasketQueryRepositoryInMemory';
-// import { NotFoundException } from '@Infrastructure/Common/Exceptions';
-// import { UUIDImplementation } from '@Infrastructure/Libraries/UUIDImplementation';
-// import { findByIdAndRemove, logException } from '@Infrastructure/Common/Functions';
+import { BasketQueryRepositoryInMemory } from '@Infrastructure/Implementations/InMemory/BasketQueryRepositoryInMemory';
+import { NotFoundException } from '@Infrastructure/Common/Exceptions';
+import { UUIDImplementation } from '@Infrastructure/Libraries/UUIDImplementation';
+import { findByIdAndRemove, logException } from '@Infrastructure/Common/Functions';
 
 import basketsRaw from './data/baskets.json';
 

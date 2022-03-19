@@ -1,5 +1,4 @@
-import { EmptyValueException,RequiredParamException,StrTooLargeException, StrTooShortException } from '../../../Common/Exceptions';
-// import { EmptyValueException,RequiredParamException,StrTooLargeException, StrTooShortException } from '@Common/Exceptions';
+import { EmptyValueException,RequiredParamException,StrTooLargeException, StrTooShortException } from '@Domain/Common/Exceptions';
 
 interface NameParams {
   name: string

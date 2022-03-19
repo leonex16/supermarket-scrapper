@@ -1,5 +1,4 @@
-import { Entity } from '../../Common/Entity';
-// import { Entity } from '@Common/Entity';
+import { Entity } from '@Domain/Common/Entity';
 
 import { Detail } from './Assigments/Detail';
 import {

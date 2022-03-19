@@ -1,9 +1,5 @@
-import { Basket } from '../Basket';
-import { ProductParams } from '../../Product/Product';
-
-// import { Basket } from '@Entities/Basket/Basket';
-// import { Product } from '@Entities/Product/Product';
-
+import { Basket } from '@Domain/Entities/Basket/Basket';
+import { ProductParams } from '@Domain/Entities/Product/Product';
 export interface BasketQueryRepository {
   getBasket( basketId: string ): Promise<Basket | null>;
 }

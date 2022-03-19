@@ -1,8 +1,5 @@
-import { REGEX_URL } from '../../../Common/Constats';
-import { EmptyValueException, RequiredParamException, UrlNotValidException } from '../../../Common/Exceptions';
-
-// import { REGEX_URL } from '@Common/Constats';
-// import { EmptyValueException, RequiredParamException, UrlNotValidException } from '@Common/Exceptions';
+import { REGEX_URL } from '@Domain/Common/Constats';
+import { EmptyValueException, RequiredParamException, UrlNotValidException } from '@Domain/Common/Exceptions';
 
 interface SourceParams {
   source: string;

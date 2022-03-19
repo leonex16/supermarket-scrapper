@@ -1,8 +1,5 @@
-import { Entity } from '../../Common/Entity';
-import { Product } from '../Product/Product';
-
-// import { Entity } from '@Common/Entity';
-// import { Product } from '@Entities/Product/Product';
+import { Entity } from '@Domain/Common/Entity';
+import { Product } from '@Domain/Entities/Product/Product';
 
 interface BasketProps {
   id: string;

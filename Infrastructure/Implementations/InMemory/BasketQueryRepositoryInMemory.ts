@@ -1,8 +1,5 @@
-import { Basket } from '../../../Domain/Entities/Basket/Basket';
-import { BasketQueryRepository } from '../../../Domain/Entities/Basket/Respositories';
-
-// import { Basket } from '@Domain/Basket/Basket';
-// import { BasketQueryRepository } from '@Domain/Basket/Respositories';
+import { Basket } from '@Domain/Entities/Basket/Basket';
+import { BasketQueryRepository } from '@Domain/Entities/Basket/Respositories';
 
 import basketsRaw from './data/baskets.json';
 

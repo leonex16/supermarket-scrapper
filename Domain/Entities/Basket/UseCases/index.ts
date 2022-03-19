@@ -1,6 +1,6 @@
-import { Basket } from '@Entities/Basket/Basket';
-import { Product } from '@Entities/Product/Product';
-import { BasketCommandRepository, BasketQueryRepository } from '@Entities/Basket/Respositories';
+import { Basket } from '@Domain/Entities/Basket/Basket';
+import { ProductParams } from '@Domain/Entities/Product/Product';
+import { BasketCommandRepository, BasketQueryRepository } from '@Domain/Entities/Basket/Respositories';
 
 interface BasketUseCasesConstructor {
   basket: Basket;
@@ -21,19 +21,19 @@ export class BasketUseCases {
     this._basketQueryRepository = basketQueryRepository;
   }
   
-  addProductUseCase( product: Product ): Basket {
-    return this._basketCommandRepository.saveProduct( this._basket, product );
+  addProductUseCase( product: ProductParams ): Basket {
+    return this._basketCommandRepository.saveProduct( product );
   }
 
   removeProductUseCase( productId: string ): Basket {
-    return this._basketCommandRepository.removeProduct( this._basket, productId );
+    return this._basketCommandRepository.removeProduct( productId );
   }
 
   saveBasketUseCase(): Promise<Basket> {
-    return this._basketCommandRepository.saveBasket( this._basket );
+    return this._basketCommandRepository.saveBasket( );
   }
 
-  getBasketUseCase( basketId: string ): Promise<Basket> {
+  getBasketUseCase( basketId: string ): Promise<Basket | null> {
     return this._basketQueryRepository.getBasket( basketId );
   }
 }

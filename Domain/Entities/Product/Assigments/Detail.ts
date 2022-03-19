@@ -1,5 +1,4 @@
-import { Price, Unit } from '../ValueObjects/index';
-// import { Price, Unit } from '@Entities/Product/ValueObjects/_index';
+import { Price, Unit } from '@Domain/Entities/Product/ValueObjects';
 
 interface DetailContructor {
   normalPrice: Price;

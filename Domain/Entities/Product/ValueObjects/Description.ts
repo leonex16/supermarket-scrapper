@@ -1,5 +1,4 @@
-import { EmptyValueException, RequiredParamException, StrTooLargeException } from '../../../Common/Exceptions';
-// import { EmptyValueException, RequiredParamException, StrTooLargeException } from '@Common/Exceptions';
+import { EmptyValueException, RequiredParamException, StrTooLargeException } from '@Domain/Common/Exceptions';
 
 interface DescriptionParams {
   description: string

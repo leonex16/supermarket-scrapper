@@ -1,5 +1,4 @@
-import { CustomErrorProps } from '../Types';
-// import { CustomErrorProps } from '@Common/Types';
+import { CustomErrorProps } from '@Domain/Common/Types';
 
 export class EmptyValueException extends Error {
   

@@ -1,5 +1,4 @@
-import { CustomErrorProps } from '../Types';
-// import { CustomErrorProps } from '@Infrastructure/Common/Types';
+import { CustomErrorProps } from '@Infrastructure/Common/Types';
 
 export class NotFoundException extends Error {
   constructor ( customErrorProps?: CustomErrorProps ) {
