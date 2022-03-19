@@ -1,15 +1,16 @@
-import { Entity } from '@Common/Entity';
-import { UUID } from '@Common/Gateways/UUID';
+import { Entity } from '../../Common/Entity';
+// import { Entity } from '@Common/Entity';
 
+import { Detail } from './Assigments/Detail';
 import {
   Description,
-  Detail,
   Image,
   Name,
   Source
-} from './ValuesObjects/_index';
+} from './ValueObjects';
 
-interface ProductParams {
+interface ProductConstructor{
+  id?: string;
   name: Name;
   description: Description;
   detail: Detail;
@@ -17,25 +18,53 @@ interface ProductParams {
   source: Source;
 }
 
+export interface ProductParams {
+  name: string;
+  description: string;
+  detail: {
+    normalPrice: string,
+    bestPrice: string,
+    unit: string,
+  };
+  image: string;
+  source: string;
+}
+
 export class Product extends Entity {
-    
-  private _name: Name;
+  
+  public readonly name: Name;
 
-  private _description: Description;
+  public readonly description: Description;
 
-  private _detail: Detail;
+  public readonly detail: Detail;
 
-  private _image: Image;
+  public readonly image: Image;
 
-  private _source: Source;
+  public readonly source: Source;
 
-  constructor( uuid: UUID, product: ProductParams ) {
-    super( uuid );
-    this._name = product.name;
-    this._description = product.description;
-    this._detail = product.detail;
-    this._image = product.image;
-    this._source = product.source;
+  private constructor( product: ProductConstructor ) {
+    super( product.id ?? 'aa' );
+    this.name = product.name;
+    this.description = product.description;
+    this.detail = product.detail;
+    this.image = product.image;
+    this.source = product.source;
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  static create( product: ProductParams ): Product {
+    const buildingProduct: ProductConstructor  = {
+      name: Name.create( product ),
+      description: Description.create( product ),
+      detail: Detail.create( product.detail ),
+      image: Image.create( product ),
+      source: Source.create( product ),
+    };
+
+    return new Product( buildingProduct );
   }
 
 }
