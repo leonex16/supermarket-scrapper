@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "esnext"
+    ],
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "paths": {
+      "@Domain/*": [ "../Domain/Entities/*" ],
+      "@Domain/Libraries/*": [ "../Domain/Common/Libraries/*" ],
+      "@Infrastructure/*": [ "../Infrastructure/*" ],
+
+    },
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "**/*"
+  ],
+  "extends": "../tsconfig.base.json",
+}
