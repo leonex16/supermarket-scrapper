@@ -1,11 +1,10 @@
 import { Basket } from '@Domain/Entities/Basket/Basket';
-import { ProductParams } from '@Domain/Entities/Product/Product';
+import { UUID } from '@Domain/Common/Libraries';
+
 export interface BasketQueryRepository {
-  getBasket( basketId: string ): Promise<Basket | null>;
+  getBasketById( basketId: UUID ): Promise<Basket | null>;
 }
 
 export interface BasketCommandRepository {
-  saveBasket(): Promise<Basket>;
-  saveProduct( product: ProductParams ): Basket;
-  removeProduct( productId: string ): Basket;
+  saveBasket( basket: Basket ): Promise<Basket>;
 }
