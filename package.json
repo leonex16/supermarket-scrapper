@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/leonex16/supermarket-scrapper-front#readme",
   "devDependencies": {
-    "@microsoft/tsdoc": "^0.13.2",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
@@ -39,6 +38,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsdoc": "^38.0.6",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
