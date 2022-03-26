@@ -1,62 +1,44 @@
-import { CustomErrorProps } from '@Domain/Common/Types';
-
 export class EmptyValueException extends Error {
-  
-  constructor ( customErrorProps?: CustomErrorProps ) {
-    const message = 'Valor vacío';
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Valor vacío';
 
-    super(
-      customErrorProps?.customMessage ?? message
-      // customErrorProps?.opts
-    );
-    this.name = 'EmptyValue';
+    super( customMessage );
+    this.name = 'EmptyValueException';
   }
 }
 
 export class RequiredParamException extends Error {
-  constructor ( customErrorProps?: CustomErrorProps ) {
-    const message = 'Valor requerido';
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Valor requerido';
 
-    super(
-      customErrorProps?.customMessage ?? message
-      // customErrorProps?.opts
-    );
-    this.name = 'RequiredParam';
+    super( customMessage );
+    this.name = 'RequiredParamException';
   }
 }
 
 export class StrTooLargeException extends Error {
-  constructor ( customErrorProps?: CustomErrorProps ) {
-    const message = 'Longitud de cadena demasiado larga';
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Longitud de cadena demasiado larga';
 
-    super(
-      customErrorProps?.customMessage ?? message
-      // customErrorProps?.opts
-    );
-    this.name = 'StrTooLarge';
+    super( customMessage );
+    this.name = 'StrTooLargeException';
   }
 }
 
 export class StrTooShortException extends Error {
-  constructor ( customErrorProps?: CustomErrorProps ) {
-    const message = 'Longitud de cadena demasiado corta';
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Longitud de cadena demasiado corta';
 
-    super(
-      customErrorProps?.customMessage ?? message
-      // customErrorProps?.opts
-    );
-    this.name = 'StrTooShort';
+    super( customMessage );
+    this.name = 'StrTooShortException';
   }
 }
 
 export class UrlNotValidException extends Error {
-  constructor ( customErrorProps?: CustomErrorProps ) {
-    const message = 'URL no válida';
+  constructor( customMessage?: string ) {
+    customMessage ??= 'URL no válida';
 
-    super(
-      customErrorProps?.customMessage ?? message
-      // customErrorProps?.opts
-    );
-    this.name = 'UrlNotValid';
+    super( customMessage );
+    this.name = 'UrlNotValidException';
   }
 }
