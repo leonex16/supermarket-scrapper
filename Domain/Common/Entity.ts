@@ -5,8 +5,8 @@ export class Entity {
 
   protected _updatedAt: Date;
 
-  constructor( uuid: string ) {
-    this._id = uuid;
+  constructor( id: string ) {
+    this._id = id;
     this._createdAt = new Date();
     this._updatedAt = new Date();
   }
