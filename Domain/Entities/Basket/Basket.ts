@@ -1,5 +1,11 @@
 import { Entity } from '@Domain/Common/Entity';
 import { Product } from '@Domain/Entities/Product/Product';
+import { UUID } from '@Domain/Common/Libraries';
+
+interface BasketConstructor{
+  id: UUID;
+  items: Product[]
+}
 
 interface BasketProps {
   id: string;
@@ -8,16 +14,20 @@ interface BasketProps {
 export class Basket extends Entity {
   public items: Product[];
 
-  private constructor( { id, items }: BasketProps ) {
+  private constructor( { id, items }: BasketConstructor ) {
     super( id );
     this.items = items;
   }
 
-  get id(): string {
+  get id(): UUID {
     return this._id;
   }
 
-  static create( { id, items }: BasketProps ): Basket {
-    return new Basket( { id, items } );
+  set id( id: UUID ) {
+    this._id = id;
+  }
+
+  static create( basketProps?: BasketProps ): Basket {
+    return new Basket( basketProps ?? { id: '', items: [] } );
   }
 }

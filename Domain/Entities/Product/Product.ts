@@ -1,4 +1,5 @@
 import { Entity } from '@Domain/Common/Entity';
+import { UUID } from '@Domain/Common/Libraries';
 
 import { Detail } from './Assigments/Detail';
 import {
@@ -9,7 +10,7 @@ import {
 } from './ValueObjects';
 
 interface ProductConstructor{
-  id?: string;
+  id: UUID;
   name: Name;
   description: Description;
   detail: Detail;
@@ -18,6 +19,7 @@ interface ProductConstructor{
 }
 
 export interface ProductParams {
+  id: string;
   name: string;
   description: string;
   detail: {
@@ -42,7 +44,7 @@ export class Product extends Entity {
   public readonly source: Source;
 
   private constructor( product: ProductConstructor ) {
-    super( product.id ?? 'aa' );
+    super( product.id );
     this.name = product.name;
     this.description = product.description;
     this.detail = product.detail;
@@ -50,12 +52,14 @@ export class Product extends Entity {
     this.source = product.source;
   }
 
+
   get id(): string {
     return this._id;
   }
 
   static create( product: ProductParams ): Product {
     const buildingProduct: ProductConstructor  = {
+      id: product.id,
       name: Name.create( product ),
       description: Description.create( product ),
       detail: Detail.create( product.detail ),
@@ -64,6 +68,10 @@ export class Product extends Entity {
     };
 
     return new Product( buildingProduct );
+  }
+
+  static parse( product: Product ): Product {
+    return new Product( product );
   }
 
 }
