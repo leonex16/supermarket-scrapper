@@ -1,13 +1,8 @@
-import { CustomErrorProps } from '@Infrastructure/Common/Types';
-
 export class NotFoundException extends Error {
-  constructor ( customErrorProps?: CustomErrorProps ) {
-    const message = 'No encontrado';
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Recurso no encontrado';
 
-    super(
-      customErrorProps?.customMessage ?? message
-      // customErrorProps?.opts
-    );
-    this.name = 'NotFound';
+    super( customMessage );
+    this.name = 'NotFoundException';
   }
 }
