@@ -42,3 +42,21 @@ export class UrlNotValidException extends Error {
     this.name = 'UrlNotValidException';
   }
 }
+
+export class MethodNotExecutedException extends Error {
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Método no ejecutado';
+
+    super( customMessage );
+    this.name = 'MethodNotExecutedException';
+  }
+}
+
+export class NotFoundException extends Error {
+  constructor( customMessage?: string ) {
+    customMessage ??= 'Recurso no encontrado';
+
+    super( customMessage );
+    this.name = 'NotFoundException';
+  }
+}
