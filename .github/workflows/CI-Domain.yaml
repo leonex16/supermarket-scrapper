@@ -37,9 +37,6 @@ jobs:
           to: ${{ secrets.TELEGRAM_UPDATE_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            commit.sha => ${{ commit.sha }}
-            =====================================
-            commit.ref => ${{ commit.ref }}
             =====================================
             github.workflow => ${{ github.workflow }}
             =====================================
