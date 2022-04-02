@@ -28,21 +28,6 @@ jobs:
           to: ${{ secrets.TELEGRAM_UPDATE_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            =====================================
-            commit.sha => ${{commit.sha}}
-            =====================================
-            commit.ref => ${{commit.ref}}
-            =====================================
-            github.workflow => ${{github.workflow}}
-            =====================================
-            github.action => ${{github.action}}
-            =====================================
-            github.event.name => ${{github.event.name}}
-            =====================================
-            github.event.path => ${{github.event.path}}
-            =====================================
-            github.workspace => ${{github.workspace}}
-            =====================================
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             
