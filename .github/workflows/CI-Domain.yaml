@@ -13,14 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Display npm version
-        run: npm --version
-
       - name: Install dependencies
         run: npm i --force
 
       - name: Run unit tests
-        run: npx run domain:test
+        run: npm run domain:test
 
       - name: Run build
-        run: npx run infra:build
+        run: npm run infra:build
