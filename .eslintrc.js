@@ -23,11 +23,13 @@ const RULES = {
   },
   VUE: {
     'vue/multi-word-component-names': VALUE_RULE.OFF,
+    'import/no-extraneous-dependencies': VALUE_RULE.OFF,
   },
   ESLINT: {
     'array-bracket-spacing': [ VALUE_RULE.ERROR, 'always' ],
     'arrow-parens': [ VALUE_RULE.ERROR, 'as-needed' ],
     'computed-property-spacing': [ VALUE_RULE.ERROR, 'always' ],
+    // 'indent': [ VALUE_RULE.ERROR, 2 ],
     'import/extensions': VALUE_RULE.OFF,
     'import/no-unresolved': VALUE_RULE.OFF,
     'import/prefer-default-export': VALUE_RULE.OFF,
@@ -43,6 +45,7 @@ const RULES = {
     'no-unused-expressions': [ VALUE_RULE.ERROR, { allowTernary: true } ],
     'no-unused-vars': VALUE_RULE.ERROR,
     'object-curly-spacing': [ VALUE_RULE.ERROR, 'always' ],
+    'require-jsdoc': VALUE_RULE.WARN,
     'semi': [ VALUE_RULE.ERROR, 'always' ],
     'sort-imports': [ VALUE_RULE.ERROR, { allowSeparatedGroups: true, memberSyntaxSortOrder: [ 'none', 'all', 'single', 'multiple' ] } ],
     'space-before-function-paren': [ VALUE_RULE.ERROR, 'never' ],
