@@ -7,8 +7,8 @@ interface DetailContructor {
 }
 
 interface DetailParams {
-  normalPrice: string;
-  bestPrice: string;
+  normalPrice?: string;
+  bestPrice?: string;
   unit: string;
 }
 
@@ -25,12 +25,16 @@ export class Detail {
     this._unit = unit;
   }
 
-  get detail() {
-    return {
-      normalPrice: this._normalPrice,
-      bestPrice: this._bestPrice,
-      unit: this._unit
-    };
+  get normalPrice() {
+    return this._normalPrice;
+  }
+
+  get bestPrice() {
+    return this._bestPrice;
+  }
+
+  get unit() {
+    return this._unit;
   }
 
   static create( detail: DetailParams ) {

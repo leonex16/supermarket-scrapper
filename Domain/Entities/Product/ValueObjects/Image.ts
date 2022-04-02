@@ -19,9 +19,9 @@ export class Image {
   static create( { image }: ImageParams ) {
     const imageTrimmed = image?.trim();
 
-    if ( imageTrimmed === undefined ) throw new RequiredParamException();
-    if ( imageTrimmed === '' ) throw new EmptyValueException();
-    if ( !REGEX_URL.test( imageTrimmed ) ) throw new UrlNotValidException();
+    if ( imageTrimmed === undefined ) throw new RequiredParamException( 'image' );
+    if ( imageTrimmed === '' ) throw new EmptyValueException( 'image' );
+    if ( !REGEX_URL.test( imageTrimmed ) ) throw new UrlNotValidException( 'image' );
 
     return new Image( { image: imageTrimmed } );
   }

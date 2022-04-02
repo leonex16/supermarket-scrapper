@@ -1,3 +1,5 @@
+import { EmptyValueException, RequiredParamException } from '@Domain/Common/Exceptions';
+
 export class Unit {
   private readonly _value: string;
 
@@ -10,7 +12,11 @@ export class Unit {
   }
 
   static create( unit: string ) {
-    // TODO: Validate...
+    const trimmedUnit = unit?.trim();
+
+    if ( trimmedUnit === undefined ) throw new RequiredParamException( 'unit' );
+    if ( trimmedUnit === '' ) throw new EmptyValueException( 'unit' );
+
     return new Unit( unit );
   }
 }

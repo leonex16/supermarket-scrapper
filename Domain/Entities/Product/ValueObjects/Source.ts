@@ -19,9 +19,9 @@ export class Source {
   static create( { source }: SourceParams ) {
     const sourceTrimmed = source?.trim();
 
-    if ( sourceTrimmed === undefined ) throw new RequiredParamException();
-    if ( sourceTrimmed === '' ) throw new EmptyValueException();
-    if ( !REGEX_URL.test( sourceTrimmed ) ) throw new UrlNotValidException();
+    if ( sourceTrimmed === undefined ) throw new RequiredParamException( 'source' );
+    if ( sourceTrimmed === '' ) throw new EmptyValueException( 'source' );
+    if ( !REGEX_URL.test( sourceTrimmed ) ) throw new UrlNotValidException( 'source' );
 
     return new Source( { source } );
   }

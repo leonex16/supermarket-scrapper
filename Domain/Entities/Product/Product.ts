@@ -1,6 +1,6 @@
+/* eslint-disable sort-imports */
 import { Entity } from '@Domain/Common/Entity';
 import { UUID } from '@Domain/Common/Libraries';
-
 import { Detail } from './Assigments/Detail';
 import {
   Description,
@@ -21,10 +21,10 @@ interface ProductConstructor{
 export interface ProductParams {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   detail: {
-    normalPrice: string,
-    bestPrice: string,
+    normalPrice?: string,
+    bestPrice?: string,
     unit: string,
   };
   image: string;
@@ -33,28 +33,55 @@ export interface ProductParams {
 
 export class Product extends Entity {
   
-  public readonly name: Name;
+  private readonly _name: Name;
 
-  public readonly description: Description;
+  private readonly _description: Description;
 
-  public readonly detail: Detail;
+  private readonly _detail: Detail;
 
-  public readonly image: Image;
+  private readonly _image: Image;
 
-  public readonly source: Source;
+  private readonly _source: Source;
 
   private constructor( product: ProductConstructor ) {
     super( product.id );
-    this.name = product.name;
-    this.description = product.description;
-    this.detail = product.detail;
-    this.image = product.image;
-    this.source = product.source;
+    this._name = product.name;
+    this._description = product.description;
+    this._detail = product.detail;
+    this._image = product.image;
+    this._source = product.source;
   }
-
 
   get id(): string {
     return this._id;
+  }
+
+  get name(): string {
+    return this._name.value;
+  }
+  
+  get description(): string | null {
+    return this._description.value;
+  }
+
+  get detail(): {
+    normalPrice: string | null,
+    bestPrice: string | null,
+    unit: string,
+  } {
+    return {
+      normalPrice: this._detail.normalPrice.value,
+      bestPrice: this._detail.bestPrice.value,
+      unit: this._detail.unit.value,
+    };
+  }
+
+  get image(): string {
+    return this._image.value;
+  }
+
+  get source(): string {
+    return this._source.value;
   }
 
   static create( product: ProductParams ): Product {
@@ -68,10 +95,6 @@ export class Product extends Entity {
     };
 
     return new Product( buildingProduct );
-  }
-
-  static parse( product: Product ): Product {
-    return new Product( product );
   }
 
 }
