@@ -1,4 +1,4 @@
-import { Product } from '../../../Entities/Product/Product';
+import { Product } from '@Domain/Entities/Product/Product';
 
 let productParams: any = {};
 
