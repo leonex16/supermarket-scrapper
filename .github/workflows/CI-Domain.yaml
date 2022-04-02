@@ -22,10 +22,14 @@ jobs:
       - name: Run build
         run: npm run infra:build
 
-      - name: Print Env
+      - name: Set up secret file
+        env:
+          DEBUG_PASSWORD: ${{ secrets.TELEGRAM_UPDATE_TO }}
+          DEBUG_SECRET_KEY: ${{ secrets.TELEGRAM_TOKEN }}
         run: |
-          ${{ secrets.TELEGRAM_UPDATE_TO }}
-          ${{ secrets.TELEGRAM_TOKEN }}
+          echo $DEBUG_PASSWORD
+          echo $DEBUG_SECRET_KEY
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
