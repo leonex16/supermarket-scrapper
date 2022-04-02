@@ -30,7 +30,7 @@
 
 - **wrench:** Add or update configuration files.
 
-
+- **test_tube:** Add, update, or pass tests.
 ## Create a commit
 
 ```npm run commit```
@@ -51,6 +51,7 @@
 | build           | :triangular_flag_on_post:    |
 | package         | :package:                    |
 | config          | :wrench:                     |
+| test            | :test_tube:                  |
 
 ## Dependency Configuration
 
@@ -99,3 +100,6 @@ I want create two route aliases, for Domain layer and Infrastucture layer.
   }
   ```
   
+Prerequisites	npm i -D jest typescript	yarn add --dev jest typescript
+Installing	npm i -D ts-jest @types/jest	yarn add --dev ts-jest @types/jest
+Creating config	npx ts-jest config:init
