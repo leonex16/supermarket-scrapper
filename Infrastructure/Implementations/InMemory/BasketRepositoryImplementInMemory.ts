@@ -1,14 +1,15 @@
-import { Basket } from '@Domain/Entities/Basket/Basket';
-import { Product } from '@Domain/Entities/Product/Product';
+/* eslint-disable sort-imports */
 import { UUID } from '@Domain/Common/Libraries';
-import { logException } from '@Infrastructure/Common/Functions';
+import { Basket } from '@Domain/Entities/Basket/Basket';
 import { BasketCommandRepository, BasketQueryRepository } from '@Domain/Entities/Basket/Respositories';
+import { Product } from '@Domain/Entities/Product/Product';
+import { logException } from '@Infrastructure/Common/Functions';
 
 export class BasketRepositoryImplementInMemory implements BasketCommandRepository, BasketQueryRepository {
   private _basketInMemory: Basket[] = [];
 
-  constructor( basketsRawData: unknown[] ) {
-    this._basketInMemory = BasketRepositoryImplementInMemory.parsedBaskets( basketsRawData );
+  constructor( basketsRawData?: unknown[] ) {
+    this._basketInMemory = BasketRepositoryImplementInMemory.parsedBaskets( basketsRawData ?? [] );
   }
 
   getBasketById( basketId: UUID ): Promise<Basket | null> {
@@ -34,11 +35,11 @@ export class BasketRepositoryImplementInMemory implements BasketCommandRepositor
   }
 
   private static parsedBaskets( basketsRawData: unknown[] ): Basket[] {
-    return ( basketsRawData as Basket[] )
-      .map( ( basket: Basket ) => Basket
+    return basketsRawData
+      .map( ( basket: any ) => Basket
         .create( {
           id: basket.id,
-          items: basket.items.map( ( p: Product )=> Product.parse( p ) )
+          items: basket.items.map( ( p: any )=> Product.create( p ) )
         } ) );
   }
 
