@@ -21,3 +21,34 @@ jobs:
 
       - name: Run build
         run: npm run infra:build
+
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_UPDATE_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            repo => ${{repo}}
+            =====================================
+            repo.namespace => ${{repo.namespace}}
+            =====================================
+            commit.sha => ${{commit.sha}}
+            =====================================
+            commit.ref => ${{commit.ref}}
+            =====================================
+            github.workflow => ${{github.workflow}}
+            =====================================
+            github.action => ${{github.action}}
+            =====================================
+            github.event.name => ${{github.event.name}}
+            =====================================
+            github.event.path => ${{github.event.path}}
+            =====================================
+            github.workspace => ${{github.workspace}}
+            =====================================
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
