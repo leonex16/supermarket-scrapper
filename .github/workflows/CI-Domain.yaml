@@ -3,8 +3,6 @@ name: CI-Domain
 on:
   push:
     branches: [ leo-branch ]
-  # pull_request:
-  #   branches: [ main ]
 
 jobs:
   build:
