@@ -18,7 +18,10 @@ module.exports = {
   },
   globals: {
     'ts-jest': {
-      tsconfig: TS_CONFIG[ process.env.LAYERS_TEST_ENV ]
+      tsconfig: TS_CONFIG[ process.env.LAYERS_TEST_ENV ],
+      diagnostics: {
+        exclude: [ '**' ],
+      },
     }
   }
 };
