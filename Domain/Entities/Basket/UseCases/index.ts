@@ -1,11 +1,11 @@
+import { MethodNotExecutedException, NotFoundException } from '@Domain/Common/Exceptions';
+import { UUID, Uuid } from '@Domain/Common/Libraries';
 import { Basket } from '@Domain/Entities/Basket/Basket';
 import {
   BasketCommandRepository,
-  BasketQueryRepository,
+  BasketQueryRepository
 } from '@Domain/Entities/Basket/Respositories';
-import { MethodNotExecutedException, NotFoundException } from '@Domain/Common/Exceptions';
 import { Product, ProductParams } from '@Domain/Entities/Product/Product';
-import { UUID, Uuid } from '@Domain/Common/Libraries';
 
 export class CreateBaskteUseCase {
   private _basket: Basket | null = null;
