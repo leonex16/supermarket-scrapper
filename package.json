@@ -17,6 +17,7 @@
     "infra:build": "npm run build --workspace=Infrastructure",
     "infra:dev:console": "npm run dev:console --workspace=Infrastructure",
     "infra:production": "npm run start --workspace=Infrastructure",
+    "infra:test": "LAYERS_TEST_ENV=INFRASTRUCTURE npx jest",
     "domain:test": "LAYERS_TEST_ENV=DOMAIN npx jest",
     "commit": "npx gitmoji-cli -c"
   },
