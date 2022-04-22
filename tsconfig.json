@@ -1,13 +1,8 @@
 {
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true
-  },
   "compilerOptions": {
-    "lib": ["esnext"],
-    "outDir": ".build",
-    "target": "ESNext",
-    "module": "commonjs",
+    "outDir": "dist",
+    "target": "ES6",
+    "module": "ESNext",
     "moduleResolution": "node",
     "removeComments": true,
     "skipLibCheck": true,
@@ -17,7 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "alwaysStrict": true,
     "noEmit": false,
     "allowJs": false,
@@ -25,10 +20,14 @@
     "allowUnusedLabels": false,
     "noImplicitReturns": false,
     
-    "baseUrl": ".",
-    "rootDir": ".",
+    "baseUrl": "./",
+    "rootDir": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "#src/*": ["./src/*"],
     }
   },
+  "exclude": ["node_modules", "dist"],
+  "include": [
+    "./**/*.ts"
+  ],
 }
