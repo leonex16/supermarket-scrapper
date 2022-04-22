@@ -4,6 +4,6 @@
 
 ```bash
 npm init @eslint/config
-npm i -D typescript nodemon ts-node playwright @types/node @types/dotenv
+npm i -D typescript nodemon playwright @types/node @types/dotenv
 npm i dotenv
 ```
