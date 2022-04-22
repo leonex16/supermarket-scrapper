@@ -10,7 +10,6 @@ const ENVS = {
       '@typescript-eslint/indent': [ VALUE_RULE.ERROR, 2 ],
       '@typescript-eslint/no-explicit-any': VALUE_RULE.OFF,
       '@typescript-eslint/no-unused-vars': [ VALUE_RULE.WARN, { varsIgnorePattern: '__' } ],
-
     },
     EXTENDS: [
       'plugin:@typescript-eslint/recommended',
