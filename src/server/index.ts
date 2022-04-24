@@ -1,20 +1,22 @@
-import {OAK} from '../../dependencies.ts';
-import { HOST, PORT } from '../config/index.ts'
+import Koa from 'koa';
+import fs from 'node:fs';
+import http2 from 'node:http2';
 
-const app = new OAK.Application();
+import { logger } from '#src/functions/index';
+import {
+  HOST, PORT, SSL_CERT_PATH, SSL_KEY_PATH,
+} from '#src/config/index';
 
-app.use( async (ctx, next) => {
-  await next();
-  const rt = ctx.response.headers.get('X-Response-Time');
-})
+if ( !SSL_CERT_PATH || !SSL_KEY_PATH ) throw new Error( 'SSL_CERT_PATH and SSL_KEY_PATH must be set in the environment' );
 
-app.use(async (ctx, next) => {
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-  ctx.response.headers.set("X-Response-Time", `${ms}ms`);
-});
+const app = new Koa();
+const http2ServerOpts = {
+  key: fs.readFileSync( SSL_KEY_PATH ),
+  cert: fs.readFileSync( SSL_CERT_PATH ),
+};
 
-console.log(`Welcome API Deno :) ${HOST}:${PORT}...`);
+http2
+  .createSecureServer( http2ServerOpts, app.callback() )
+  .listen( PORT, () => logger( 'info', `Listening on https://${ HOST }:${ PORT }` ) );
 
-await app.listen(`${HOST}:${PORT}`);
+export { app };
