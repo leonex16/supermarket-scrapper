@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "tsc -p . --watch & DEBUG=koa* nodemon dist/index.js",
-    "test": "tsc -p . && mocha dist/src/__tests__/index.spec.js"
+    "test": "tsc -p . && NODE_ENV=TESTING mocha dist/src/__tests__/index.spec.js"
   },
   "keywords": [
     "playright",
