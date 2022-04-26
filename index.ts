@@ -1,2 +1,3 @@
 import 'dotenv/config';
-import './src/config/index.ts';
+
+import '#src/app';
