@@ -95,6 +95,7 @@ const ENVS = {
       'space-before-function-paren': [ VALUE_RULE.ERROR, 'never' ],
       'space-in-parens': [ VALUE_RULE.ERROR, 'always', { exceptions: [ 'empty' ] } ],
       'template-curly-spacing': [ VALUE_RULE.ERROR, 'always' ],
+      'func-names': VALUE_RULE.OFF,
       'quotes': [ VALUE_RULE.ERROR, 'single' ],
       'quote-props': VALUE_RULE.OFF,
     },
