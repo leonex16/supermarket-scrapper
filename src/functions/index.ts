@@ -1,9 +1,8 @@
-import { ENV } from '#src/config/index';
+import { ClgType } from '#src/types/index';
+import { NODE_ENV } from '#src/config/index';
 
-type clgType = 'info' | 'log' | 'warn' | 'error';
-
-export const logger = ( type: clgType, ...args: any[] ) => {
-  if ( ENV !== 'DEVELOPMENT' ) return;
+export const logger = ( type: ClgType, ...args: any[] ) => {
+  if ( NODE_ENV !== 'DEVELOPMENT' ) return;
 
   // eslint-disable-next-line no-console
   const clgFn = console[ type ];
