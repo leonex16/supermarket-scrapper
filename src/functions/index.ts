@@ -20,3 +20,31 @@ export const logger = ( type: ClgType, ...args: any[] ) => {
   clgFn( ...args );
   clgFn( sepBottom );
 };
+
+export const toCapitalizeCase = ( str?: string ) => {
+  if ( str === undefined ) {
+    logger( 'warn', 'toCapitalizeCase >>> String argument is required' );
+    return '';
+  }
+  return str.charAt( 0 ).toUpperCase() + str.slice( 1 );
+};
+
+export const formatToCLPCurrency = ( value?: number | string ) => {
+  if ( value === undefined ) {
+    logger( 'warn', 'formatToCLPCurrency >>> Value argument is required' );
+    return '0';
+  }
+  const parsedValue = typeof value === 'string' ? Number( value ) : value;
+  return new Intl.NumberFormat( 'es-CL', { style: 'currency', currency: 'CLP' } ).format( parsedValue );
+};
+
+export const sanitizedCLPCurrency = ( value?: string ) => {
+  if ( value === undefined ) {
+    logger( 'warn', 'sanitizedCLPCurrency >>> Value argument is required' );
+    return '0';
+  }
+  const parsedValue = value.replace( /[^0-9]/g, '' );
+  return parsedValue;
+};
+
+export const satizeAndFormatCLPCurrency = ( value?: string ) => formatToCLPCurrency( sanitizedCLPCurrency( value ) );
