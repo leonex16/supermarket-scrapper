@@ -9,13 +9,13 @@
     "npm": ">=8.6.0"
   },
   "scripts": {
-    "dev": "tsc -p . --watch & DEBUG=koa* nodemon dist/index.js",
-    "test": "tsc -p . && NODE_ENV=TESTING mocha dist/src/__tests__/index.spec.js"
+    "start": "NODE_ENV=PRODUCTION node dist/index.js",
+    "dev": "tsc -p . --watch & NODE_ENV=DEVELOPMENT nodemon dist/index.js",
+    "test": "export NODE_TLS_REJECT_UNAUTHORIZED=0  && tsc -p . && NODE_ENV=TESTING mocha --timeout 60000 dist/src/__tests__/index.spec.js"
   },
   "keywords": [
     "playright",
     "node",
-    "18v",
     "typescript",
     "ts",
     "scrapper",
@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "^5.20.0",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
