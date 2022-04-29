@@ -46,7 +46,7 @@ describe( 'Get product use case', () => {
       const { products } = await getProducts( 'bebida', supermarket );
 
       expect( products )
-        .to.eventually.be.an( 'array' )
+        .to.be.an( 'array' )
         .and.to.has.length.above( 3 );
     } );
 
