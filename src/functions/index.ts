@@ -1,7 +1,7 @@
-import { ClgType } from '#src/types/index';
+import { ConsoleKeys } from '#src/types/index';
 import { NODE_ENV } from '#src/config/index';
 
-export const logger = ( type: ClgType, ...args: any[] ) => {
+export const logger = ( type: ConsoleKeys, ...args: any[] ) => {
   if ( NODE_ENV !== 'DEVELOPMENT' ) return;
 
   // eslint-disable-next-line no-console

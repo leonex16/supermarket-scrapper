@@ -1,3 +1,3 @@
 export type Supermarkets = 'LIDER' | 'JUMBO';
 
-export type ClgType = 'info' | 'log' | 'warn' | 'error';
+export type ConsoleKeys = 'info' | 'log' | 'warn' | 'error';
