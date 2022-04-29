@@ -10,9 +10,10 @@ import {
 if ( !SSL_CERT_PATH || !SSL_KEY_PATH ) throw new Error( 'SSL_CERT_PATH and SSL_KEY_PATH must be set in the environment' );
 
 const app = new Koa();
-const http2ServerOpts = {
+const http2ServerOpts: http2.SecureServerOptions = {
   key: fs.readFileSync( SSL_KEY_PATH ),
   cert: fs.readFileSync( SSL_CERT_PATH ),
+  allowHTTP1: true,
 };
 
 http2
