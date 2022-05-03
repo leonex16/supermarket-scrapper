@@ -26,14 +26,15 @@ const promises = [
   requester.get( '/supermarket' ).query( BAD_PATH.BODY_1 ),
   requester.get( '/supermarket' ).query( BAD_PATH.BODY_2 ),
 ];
-const responses = await Promise.allSettled( promises );
 
-beforeEach( () => {
-  HAPPY_PATH = { ...HAPPY_PATH };
-  BAD_PATH = { ...BAD_PATH };
-} );
+describe( 'Supermarket endpoint', async() => {
+  const responses = await Promise.allSettled( promises );
 
-describe( 'Supermarket endpoint', () => {
+  beforeEach( () => {
+    HAPPY_PATH = { ...HAPPY_PATH };
+    BAD_PATH = { ...BAD_PATH };
+  } );
+
   describe( 'GET - /supermarket', () => {
     it( 'should returns a 200 status code and a JSON object with data', () => {
       const { status, value } = responses[ 0 ] as unknown as PromiseFulfilledResult<Response>;
