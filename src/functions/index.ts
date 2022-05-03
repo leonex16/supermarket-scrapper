@@ -30,21 +30,33 @@ export const toCapitalizeCase = ( str?: string ) => {
 };
 
 export const formatToCLPCurrency = ( value?: number | string ) => {
-  if ( value === undefined ) {
+  const isUndefined = value === undefined;
+  const isNotNumber = Number.isInteger( Number( value ) ) === false;
+
+  if ( isUndefined || isNotNumber ) {
     logger( 'warn', 'formatToCLPCurrency >>> Value argument is required' );
-    return '0';
+    return '$0';
   }
+
   const parsedValue = typeof value === 'string' ? Number( value ) : value;
   return new Intl.NumberFormat( 'es-CL', { style: 'currency', currency: 'CLP' } ).format( parsedValue );
 };
 
 export const sanitizedCLPCurrency = ( value?: string ) => {
-  if ( value === undefined ) {
+  const isUndefined = value === undefined;
+  const isNotNumber = Number.isInteger( Number( value ) ) === false;
+
+  if ( isUndefined || isNotNumber ) {
     logger( 'warn', 'sanitizedCLPCurrency >>> Value argument is required' );
-    return '0';
+    return 0;
   }
   const parsedValue = value.replace( /[^0-9]/g, '' );
   return parsedValue;
 };
 
 export const satizeAndFormatCLPCurrency = ( value?: string ) => formatToCLPCurrency( sanitizedCLPCurrency( value ) );
+
+export const removeQueryString = ( url: string ) => {
+  const urlWithoutQueryString = url.split( '?' )[ 0 ];
+  return urlWithoutQueryString.trim();
+};
