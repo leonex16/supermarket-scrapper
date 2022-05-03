@@ -9,7 +9,7 @@
     "npm": ">=8.6.0"
   },
   "scripts": {
-    "start": "NODE_ENV=PRODUCTION node dist/index.js",
+    "start": "tsc -p . && NODE_ENV=PRODUCTION node dist/index.js",
     "dev": "tsc -p . --watch & NODE_ENV=DEVELOPMENT nodemon dist/index.js",
     "test": "export NODE_TLS_REJECT_UNAUTHORIZED=0  && tsc -p . && NODE_ENV=TESTING mocha --timeout 60000 dist/src/__tests__/index.spec.js"
   },
