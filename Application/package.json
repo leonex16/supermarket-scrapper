@@ -2,41 +2,20 @@
   "name": "application",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@craco/craco": "^6.4.3",
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.3",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0"
-  },
   "scripts": {
-    "postcss": "postcss --config postcss.config.js src/assets/styles/*.pcss -o public/index.css --watch",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "cssnano": "^5.1.3",
-    "postcss": "^8.4.8",
-    "postcss-cli": "^9.1.0",
-    "postcss-import": "^14.0.2",
-    "precss": "^4.0.0"
+    "@types/react": "18.0.8",
+    "@types/react-dom": "18.0.3",
+    "eslint-config-next": "12.1.6"
   }
 }

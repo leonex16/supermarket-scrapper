@@ -1,5 +1,5 @@
 {
-  "name": "supermarket-scrapper-front",
+  "name": "supermarket-scrapper",
   "version": "1.0.0",
   "private": "true",
   "workspaces": [
@@ -7,47 +7,39 @@
     "Infrastructure"
   ],
   "engines": {
-    "npm": "8.3.1"
+    "node": ">=18.0.0",
+    "npm": ">=8.6.0"
   },
   "scripts": {
-    "app:postcss": "npm run postcss --workspace=Application",
     "app:start": "npm run start --workspace=Application",
+    "app:dev": "npm run dev --workspace=Application",
     "app:test": "npm run test --workspace=Application",
     "app:build": "npm run build --workspace=Application",
     "infra:build": "npm run build --workspace=Infrastructure",
     "infra:dev:console": "npm run dev:console --workspace=Infrastructure",
     "infra:production": "npm run start --workspace=Infrastructure",
     "infra:test": "LAYERS_TEST_ENV=INFRASTRUCTURE npx jest",
-    "domain:test": "LAYERS_TEST_ENV=DOMAIN npx jest",
-    "commit": "npx gitmoji-cli -c"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leonex16/supermarket-scrapper-front.git"
+    "domain:test": "LAYERS_TEST_ENV=DOMAIN npx jest"
   },
   "author": "Leonel Espinoza Sotelo",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/leonex16/supermarket-scrapper-front/issues"
-  },
-  "homepage": "https://github.com/leonex16/supermarket-scrapper-front#readme",
   "devDependencies": {
+    "@types/node": "17.0.31",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
-    "eslint": "^8.11.0",
+    "eslint": "8.14.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsdoc": "^38.0.6",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "gitmoji-cli": "^4.9.0",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.4",
-    "typescript": "^4.6.2"
+    "typescript": "4.6.4"
   },
   "_moduleAliases": {
     "@Domain": "Domain",
