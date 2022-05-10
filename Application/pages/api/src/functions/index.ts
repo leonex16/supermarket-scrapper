@@ -13,12 +13,13 @@ export const logger = ( type: ConsoleKeys, ...args: any[] ) => {
     return;
   }
 
-  const separator = ( quant = 25 ) => '*'.repeat( quant );
+  // const datetime = new Intl.DateTimeFormat('en-US',{ dateStyle: 'medium', timeStyle: 'medium', timeZone: 'UTC',  }).format();
+  const separator = ( quant = 40 ) => '*'.repeat( quant );
   const sepTop = `${ separator() } ${ type.toUpperCase() } ${ separator() }`;
   const sepBottom = `${ separator() }*${ separator( type.length ) }*${ separator() }`;
 
   clgFn( sepTop );
-  clgFn( ...args );
+  clgFn( `[ ${new Date().toISOString()} ] `, ...args );
   clgFn( sepBottom );
 };
 
