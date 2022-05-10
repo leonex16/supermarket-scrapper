@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-expressions */
-import { expect } from 'chai';
-
 import { GeneratorData } from '@server/libs/GeneratorData';
 import { Product } from '@server/scrapper/entities/Product';
 
@@ -39,35 +37,35 @@ describe( 'Entity Product', () => {
     it( 'should returns an instanfe of product', () => {
       const product = Product.create( RAW_PRODUCT.HAPPY_PATH );
 
-      expect( product ).to.be.an.instanceOf( Product );
+      expect( product ).toBeInstanceOf( Product );
     } );
 
     it( 'should formats normal and best price', () => {
       const product = Product.create( RAW_PRODUCT.HAPPY_PATH );
 
-      expect( product?.normalPrice ).to.contains( '$' );
-      expect( product?.bestPrice ).to.contains( '$' );
+      expect( product?.normalPrice ).toContain( '$' );
+      expect( product?.bestPrice ).toContain( '$' );
     } );
 
     it( 'should returns undefined if product name is undefined', () => {
       RAW_PRODUCT.BAD_PATH.name = undefined;
       const product = Product.create( RAW_PRODUCT.BAD_PATH );
 
-      expect( product ).to.be.undefined;
+      expect( product ).toBeUndefined();
     } );
 
     it( 'should returns undefined if product normalPrice is undefined', () => {
       RAW_PRODUCT.BAD_PATH.detail.normalPrice = undefined;
       const product = Product.create( RAW_PRODUCT.BAD_PATH );
 
-      expect( product ).to.be.undefined;
+      expect( product ).toBeUndefined();
     } );
 
     it( 'should returns undefined if product url is undefined', () => {
       RAW_PRODUCT.BAD_PATH.url = undefined;
       const product = Product.create( RAW_PRODUCT.BAD_PATH );
 
-      expect( product ).to.be.undefined;
+      expect( product ).toBeUndefined();
     } );
   } );
 } );
