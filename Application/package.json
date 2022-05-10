@@ -3,19 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "server": "ts-node-dev -r tsconfig-paths/register -P tsconfig.json  server.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@koa/router": "^10.1.1",
+    "dotenv": "^16.0.0",
+    "koa": "^2.13.4",
     "next": "12.1.6",
+    "playwright": "^1.21.1",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@ef-carbon/tspm": "^2.2.5",
+    "@ngneat/falso": "^5.1.0",
+    "@types/koa": "^2.13.4",
+    "@types/koa__router": "^8.0.11",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "tsconfig-paths": "^4.0.0",
+    "vitest": "^0.10.5"
   }
 }
