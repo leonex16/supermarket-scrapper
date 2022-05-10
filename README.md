@@ -1,6 +1,6 @@
 # supermarket-scrapper-front
 
-## Setup Project 
+## Setup Project
 
 ` npm install --force `
 
@@ -31,6 +31,7 @@
 - **wrench:** Add or update configuration files.
 
 - **test_tube:** Add, update, or pass tests.
+
 ## Create a commit
 
 ```npm run commit```
@@ -100,6 +101,6 @@ I want create two route aliases, for Domain layer and Infrastucture layer.
   }
   ```
   
-Prerequisites	npm i -D jest typescript	yarn add --dev jest typescript
-Installing	npm i -D ts-jest @types/jest	yarn add --dev ts-jest @types/jest
-Creating config	npx ts-jest config:init
+Prerequisites npm i -D jest typescript yarn add --dev jest typescript
+Installing npm i -D ts-jest @types/jest yarn add --dev ts-jest @types/jest
+Creating config npx ts-jest config:init
