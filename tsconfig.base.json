@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": ".",
-    "target": "ES2022",
+    "target": "ES2017",
     "removeComments": true,
     "allowJs": false,
     "skipLibCheck": true,
@@ -10,18 +10,13 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true
-    // "paths": {
-    //   "@Application/*": ["/*"],
-    //   "@Domain/*": ["domain/src/*"],
-    //   "@Infrastructure/*": ["infrastructure/src/*"],
-    // }
   },
   "exclude": ["node_modules", "**/node_modules/*"]
 }
