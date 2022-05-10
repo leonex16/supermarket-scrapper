@@ -56,8 +56,8 @@ export async function toSearch( page: Page, SUPERMARKET: Supermarket, productNam
   await $searchBox.fill( productName );
   await $searchBox.press( 'Enter' );
   const className = await Promise.race( [
-    locatorNotFound.getAttribute( 'class', { timeout: 50000 } ),
-    locatorProduct.getAttribute( 'class', { timeout: 50000 } ),
+    locatorNotFound.getAttribute( 'class', { timeout: 120000 } ),
+    locatorProduct.getAttribute( 'class', { timeout: 120000 } ),
   ] );
 
   if ( `.${ className }` === SUPERMARKET.NOT_FOUND ) throw new NotFoundProductException();

@@ -17,7 +17,7 @@ export const getProducts = async( productName: string, supermarket: Supermarkets
   const page = await context.newPage();
 
   logger( 'info', `Opening ${ SUPERMARKET.URL }` );
-  await page.goto( SUPERMARKET.URL );
+  await page.goto( SUPERMARKET.URL, { timeout: 60000 });
 
   logger( 'info', `${ supermarket } - Searching for ${ productName }` );
   await toSearch( page, SUPERMARKET, productName );
