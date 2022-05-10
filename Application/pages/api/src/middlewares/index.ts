@@ -19,6 +19,8 @@ export function handleResponse() {
   return async function( ctx: Context, next: Next ) {
     const responseHttp = new ResponseHttp();
 
+    ctx.set('Content-Type', 'application/json');
+
     try {
       const data = await next();
 
@@ -30,7 +32,7 @@ export function handleResponse() {
       responseHttp.handleSuccess( data );
     } catch ( err ) {
       const error = err as ErrorHttp;
-      logger( 'error', { error, url: ctx.url } );
+      logger( 'error', { url: ctx.url, error } );
       responseHttp.handleError( error );
     } finally {
       ctx.status = responseHttp.statusCode;
