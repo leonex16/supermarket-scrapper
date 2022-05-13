@@ -1,0 +1,30 @@
+.scr-search-box {
+  position: relative;
+  margin: 1rem;
+  background-color: var(--white);
+  &__input {
+    border: none;
+    outline: 1px solid #00000020;
+    box-shadow: 2px 2px 10px #00000020;
+    padding: 8px 12px;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 5px;
+    bottom: 0px;
+    right: 10px;
+
+    border: none;
+
+    background-color: inherit;
+   }
+
+  &__ico {
+    color: red !important;
+    stroke: black !important;
+    fill: red !important;
+   }
+}
