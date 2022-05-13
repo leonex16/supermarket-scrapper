@@ -79,6 +79,11 @@ $info--light: #77c7f8;
 $highlight: #8854D0;
 $highlight--light: #bd97f2;
 
+$jumbo: #1fa02e;
+$lider: #0071dc;
+$santa-isabel: #d91e18;
+$tottus: #4da80a;
+
 $border-radius--sm: 4px;
 $border-radius--md: 8px;
 $border-radius--lg: 16px;
@@ -132,6 +137,11 @@ $padding--xl: 64px;
   --highlight: #{$highlight};
   --highlight--light: #{$highlight--light};
 
+  --jumbo: #{$jumbo};
+  --lider: #{$lider};
+  --santa-isabel: #{$santa-isabel};
+  --tottus: #{$tottus};
+
   --border-radius--sm: #{$border-radius--sm};
   --border-radius--md: #{$border-radius--md};
   --border-radius--lg: #{$border-radius--lg};
@@ -184,5 +194,5 @@ header,
 article,
 section,
 footer {
-  margin-bottom: var(--margin--md);
+  margin: var(--margin--md) auto;
 }
