@@ -6,7 +6,7 @@
       "esnext"
     ],
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "incremental": true,
     "baseUrl": ".",
     "paths": {
