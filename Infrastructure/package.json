@@ -8,13 +8,13 @@
     "dev:console": "TS_NODE_PROJECT=./tsconfig.json nodemon --exec ts-node --pretty ./apps/index.ts"
   },
   "dependencies": {
-    "module-alias": "^2.2.2",
-    "uuid": "^8.3.2"
+    "module-alias": "2.2.2",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@types/module-alias": "^2.0.1",
-    "@types/uuid": "^8.3.4",
-    "nodemon": "^2.0.15",
-    "ts-node": "^10.7.0"
+    "@types/module-alias": "2.0.1",
+    "@types/uuid": "8.3.4",
+    "nodemon": "2.0.15",
+    "ts-node": "10.7.0"
   }
 }

@@ -6,27 +6,32 @@
     "server": "ts-node-dev -r tsconfig-paths/register -P tsconfig.json  server.ts",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "@koa/router": "^10.1.1",
-    "dotenv": "^16.0.0",
-    "koa": "^2.13.4",
+    "@koa/router": "10.1.1",
+    "dotenv": "16.0.0",
+    "koa": "2.13.4",
     "next": "12.1.6",
-    "playwright": "^1.21.1",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "@ef-carbon/tspm": "^2.2.5",
-    "@ngneat/falso": "^5.1.0",
-    "@types/koa": "^2.13.4",
-    "@types/koa__router": "^8.0.11",
+    "@ef-carbon/tspm": "2.2.5",
+    "@ladle/react": "0.15.1",
+    "@ngneat/falso": "5.1.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@types/koa": "2.13.4",
+    "@types/koa__router": "8.0.11",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
+    "@types/supertest": "2.0.12",
+    "@types/testing-library__jest-dom": "^5.14.3",
+    "@types/testing-library__react": "^10.2.0",
     "eslint-config-next": "12.1.6",
-    "tsconfig-paths": "^4.0.0",
-    "vitest": "^0.10.5"
+    "identity-obj-proxy": "^3.0.0",
+    "playwright": "1.21.1",
+    "supertest": "6.2.3"
   }
 }
