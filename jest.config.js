@@ -6,25 +6,31 @@ const TS_CONFIG = {
 };
 const pathToTsConfig = TS_CONFIG[ process.env.LAYERS_TEST_ENV ];
 
+/** @type {import('ts-jest').InitialOptionsTsJest} */
 module.exports = {
-  // moduleNameMapper: pathsToModuleNameMapper( compilerOptions.paths, { prefix: '<rootDir>' } ),
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   rootDir: '.',
-  testRegex: '(spec.ts)',
+  testRegex: '(spec.tsx?)',
   verbose: false,
   moduleNameMapper: {
+    '\\.(scss|sass|css)$': 'identity-obj-proxy',
     '@Application/(.*)': '<rootDir>/Application/$1',
     '@server/(.*)': '<rootDir>/Application/pages/api/src/$1',
     '@Domain/(.*)': '<rootDir>/Domain/$1',
     '@Infrastructure/(.*)': '<rootDir>/Infrastructure/$1',
   },
+  transform: {
+    "\\.tsx?$": "ts-jest",
+  },
   globals: {
     'ts-jest': {
+      useESM: true,
       tsconfig: pathToTsConfig,
-      diagnostics: {
-        exclude: [ '**' ],
-      },
+      // diagnostics: {
+      //   exclude: [ '**' ],
+      // },
+      diagnostics: false,
     },
   },
 };
