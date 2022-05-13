@@ -19,7 +19,7 @@ describe('<Button />', () => {
     screen.getByText(props.text)
   })
 
-  test('Check fire onClick function', () => {
+  test('Check if fire onClick event', () => {
     fireEvent.click(screen.getByText(props.text))
 
     expect(props.onClick).toBeCalledTimes(1)
