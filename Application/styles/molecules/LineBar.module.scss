@@ -1,0 +1,24 @@
+.scr-line-bar {
+  display: flex;
+
+  &__slice {
+    flex-grow: 1;
+    height: 10px;
+
+    &--jumbo {
+      background-color: var(--jumbo);
+    }
+  
+    &--lider {
+      background-color: var(--lider);
+    }
+  
+    &--santa-isabel {
+      background-color: var(--santa-isabel);
+    }
+  
+    &--tottus {
+      background-color: var(--tottus);
+    }
+  }
+}

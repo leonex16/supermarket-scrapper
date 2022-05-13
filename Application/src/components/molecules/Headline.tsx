@@ -25,7 +25,6 @@ export interface HeadlineProps {
 }
 
 export function Headline({ supermarket, text, type }: HeadlineProps) {
-  console.log(`scr-headline--${supermarket}`)
   const className = `${styles['scr-headline']} ${styles[`scr-headline--${supermarket}`]}`;
   const headlines = {
     h1: <h1 className={className}>{text}</h1>,
