@@ -1,0 +1,188 @@
+/* Set Fonts */
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../public/fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../public/fonts/Poppins-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../public/fonts/Poppins-Italic.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../public/fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../public/fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../public/fonts/Poppins-LightItalic.ttf');
+}
+
+/* Variables */
+
+/* $ratio: 1.15pt;
+$font-size-base: 16pt; */
+
+$font-family--primary: 'Poppins', sans-serif;
+  
+$font-size--xs: 14pt; /* $font-size--base - 2 */
+$font-size--sm: 15pt; /* $font-size--base - 1 */
+$font-size--md: 16pt; /* $font-size--base */
+$font-size--lg: 17pt; /* $font-size--base + 1 */
+$font-size--xl: 18pt; /* $font-size--base + 2 */
+
+$headline--6: 18.4pt; /* $font-size--base ** 1 */
+$headline--5: 21.16pt; /* $font-size--base ** 2 */
+$headline--4: 24.334pt; /* $font-size--base ** 3 */
+$headline--3: 27.9841pt; /* $font-size--base ** 4 */
+$headline--2: 32.181715pt; /* $font-size--base ** 5 */
+$headline--1: 37.00897225pt; /* $font-size--base ** 6 */
+
+$white: #FCFCFC;
+$black: #262626;
+$gray--light: #D1D8E0;
+$white--pure: #FFFFFF;
+$black--pure: #000000;
+$primary: hsl(159, 64%, 32%);
+$success: #20BF6B;
+$success--light: #4ff79e;
+$warning: #FED330;
+$warning--light: #ffe894;
+$danger: #EB3B5A;
+$danger--light: #ff8fa3;
+$info: #2D98DA;
+$info--light: #77c7f8;
+$highlight: #8854D0;
+$highlight--light: #bd97f2;
+
+$border-radius--sm: 4px;
+$border-radius--md: 8px;
+$border-radius--lg: 16px;
+
+$margin--xs: 4px;
+$margin--sm: 8px;
+$margin--md: 16px;
+$margin--lg: 32px;
+$margin--xl: 64px;
+
+$padding--xs: 4px;
+$padding--sm: 8px;
+$padding--md: 16px;
+$padding--lg: 32px;
+$padding--xl: 64px;
+
+/* Base */
+
+/* $ratio: 1.333 */
+/* $font-size-base: 16pt */
+:root {
+  --font-family--primary: 'Poppins', sans-serif;
+
+  --font-size--xs: #{$font-size--xs};
+  --font-size--sm: #{$font-size--sm};
+  --font-size--md: #{$font-size--md};
+  --font-size--lg: #{$font-size--lg};
+  --font-size--xl: #{$font-size--xl};
+
+  --headline--6: #{$headline--6};
+  --headline--5: #{$headline--5};
+  --headline--4: #{$headline--4};
+  --headline--3: #{$headline--3};
+  --headline--2: #{$headline--2};
+  --headline--1: #{$headline--1};
+
+  --white: #{$white};
+  --black: #{$black};
+  --gray--light: #{$gray--light};
+  --white--pure: #{$white--pure};
+  --black--pure: #{$black--pure};
+  --primary: #{$primary};
+  --success: #{$success};
+  --success--light: #{$success--light};
+  --warning: #{$warning};
+  --warning--light: #{$warning--light};
+  --danger: #{$danger};
+  --danger--light: #{$danger--light};
+  --info: #{$info};
+  --info--light: #{$info--light};
+  --highlight: #{$highlight};
+  --highlight--light: #{$highlight--light};
+
+  --border-radius--sm: #{$border-radius--sm};
+  --border-radius--md: #{$border-radius--md};
+  --border-radius--lg: #{$border-radius--lg};
+
+  --margin--xs: #{$margin--xs};
+  --margin--sm: #{$margin--sm};
+  --margin--md: #{$margin--md};
+  --margin--lg: #{$margin--lg};
+  --margin--xl: #{$margin--xl};
+
+  --padding--xs: #{$padding--xs};
+  --padding--sm: #{$padding--sm};
+  --padding--md: #{$padding--md};
+  --padding--lg: #{$padding--lg};
+  --padding--xl: #{$padding--xl};
+}
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family--primary);
+}
+
+h1 {
+  font-size: var(--headline--1);
+}
+
+h2 {
+  font-size: var(--headline--2);
+}
+
+h3 {
+  font-size: var(--headline--3);
+}
+
+h4 {
+  font-size: var(--headline--4);
+}
+
+h5 {
+  font-size: var(--headline--5);
+}
+
+h6 {
+  font-size: var(--headline--6);
+}
+
+header,
+article,
+section,
+footer {
+  margin-bottom: var(--margin--md);
+}
