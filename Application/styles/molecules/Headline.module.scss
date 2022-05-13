@@ -1,0 +1,33 @@
+.scr-headline {
+  position: relative;
+
+  :is(&--jumbo, &--lider, &--santa-isabel, &--tottus)::after {
+    content: '';
+    display: inline-block;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    height: 10px;
+    width: 100px;
+    margin: auto;
+    margin-left: 30px;
+  }
+
+  &--jumbo::after {
+    background-color: var(--jumbo);
+  }
+
+  &--lider::after {
+    background-color: var(--lider);
+  }
+
+  &--santa-isabel::after {
+    background-color: var(--santa-isabel);
+  }
+
+  &--tottus::after {
+    background-color: var(--tottus);
+  }
+}
