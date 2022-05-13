@@ -9,7 +9,7 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
   return (
     <main>
       <header>
-        <h1>Buttons</h1>
+        <h1>{title}</h1>
       </header>
       <article>
         {children}
