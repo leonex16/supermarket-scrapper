@@ -1,0 +1,40 @@
+.scr-btn {
+  position: relative;
+  border-radius: 8px; /* --border-radius--m */
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 8px;
+  min-width: 125px;
+  min-height: 40px;
+
+  transition: filter 200ms ease;
+}
+
+.scr-btn:hover {
+  filter: brightness(.9);
+}
+
+.scr-btn:active {
+  filter: brightness(.7);
+}
+
+.scr-btn:focus-visible:after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  display: inline-block;
+
+  border: 2px solid white;
+  border-radius: 8px; /* --border-radius--m */
+  height: 100%;
+  width: 100%;
+  padding: 4px;
+}
+
+.scr-btn--primary {
+  background-color: #27B382; /* --primary */
+  color: #FFF; /* --white */
+}
