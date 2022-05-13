@@ -9,7 +9,11 @@ export function Buttons() {
           <h2>Primary</h2>
         </header>
         <div>
-          <Button color={ButtonColor.Primary} onClick={() => {}} text='Button Text'></Button>
+          <Button
+            color={ButtonColor.Primary}
+            onClick={() => { }}
+            text='Button Text'
+          ></Button>
         </div>
       </section>
       <hr />
