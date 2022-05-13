@@ -92,7 +92,7 @@ const ENVS = {
       'require-jsdoc': VALUE_RULE.OFF,
       'semi': [ VALUE_RULE.ERROR, 'always' ],
       'sort-imports': [ VALUE_RULE.ERROR, { allowSeparatedGroups: true, memberSyntaxSortOrder: [ 'none', 'all', 'single', 'multiple' ] } ],
-      'space-before-function-paren': [ VALUE_RULE.ERROR, 'never' ],
+      'space-before-function-paren': [ VALUE_RULE.ERROR, 'never', { anonymous: 'always', asyncArrow: 'always', named: 'never' } ],
       'space-in-parens': [ VALUE_RULE.ERROR, 'always', { exceptions: [ 'empty' ] } ],
       'template-curly-spacing': [ VALUE_RULE.ERROR, 'always' ],
       'func-names': VALUE_RULE.OFF,
@@ -103,6 +103,15 @@ const ENVS = {
 
     PLUGINS: [],
   },
+  TESTING_LIBRARY: {
+    RULES: {},
+
+    EXTENDS: {},
+
+    PLUGINS: [
+      "testing-library"
+    ]
+  }
 };
 
 module.exports = {
@@ -130,11 +139,17 @@ module.exports = {
     ...ENVS.TS.PLUGINS,
     ...ENVS.ESLINT.PLUGINS,
     ...ENVS.REACT.PLUGINS,
+    ...ENVS.TESTING_LIBRARY.PLUGINS
   ],
   rules: {
-    ...RULES.TS,
-    ...RULES.JEST,
-    ...RULES.REACT,
-    ...RULES.ESLINT,
+    ...ENVS.TS.RULES,
+    ...ENVS.JEST.RULES,
+    ...ENVS.REACT.RULES,
+    ...ENVS.ESLINT.RULES,
+    'jest/no-disabled-tests': VALUE_RULE.OFF,
+    'jest/no-identical-title': VALUE_RULE.OFF,
+    'jest/no-focused-tests': VALUE_RULE.OFF,
+    'jest/prefer-to-have-length': VALUE_RULE.OFF,
+    'jest/valid-expect': VALUE_RULE.OFF,
   },
 };
