@@ -1,11 +1,11 @@
 import React from 'react';
-import { LineBar } from '@Application/src/components/molecules/LineBar';
+import { LineBar as Component } from '@Application/src/components/molecules/LineBar';
 
-export function LineBars() {
+export function LineBar() {
   return (
     <>
       <section>
-        <LineBar />
+        <Component />
       </section>
       <hr />
     </>
