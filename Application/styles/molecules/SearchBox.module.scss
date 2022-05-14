@@ -2,6 +2,7 @@
   position: relative;
   margin: 1rem;
   background-color: var(--white);
+
   &__input {
     border: none;
     outline: 1px solid #00000020;
@@ -20,11 +21,5 @@
     border: none;
 
     background-color: inherit;
-   }
-
-  &__ico {
-    color: red !important;
-    stroke: black !important;
-    fill: red !important;
    }
 }
