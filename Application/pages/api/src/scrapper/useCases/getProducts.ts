@@ -7,7 +7,7 @@ import { logger } from '@server/functions/index';
 import { ProductNameValueNotValidException, SupermarketValueNotValidException } from '@server/scrapper/errors/index';
 import { getProductsData, scrollBottom, toSearch } from '@server/scrapper/functions/index';
 
-export const getProducts = async( productName: string, supermarket: Supermarkets ): Promise<{ products: Product[]}> => {
+export const getProducts = async ( productName: string, supermarket: Supermarkets ): Promise<{ products: Product[]}> => {
   if ( productName.trim() === '' ) throw new ProductNameValueNotValidException();
   if ( SUPERMARKET_SELECTORS[ supermarket.toUpperCase() ] === undefined ) throw new SupermarketValueNotValidException();
 
@@ -17,7 +17,7 @@ export const getProducts = async( productName: string, supermarket: Supermarkets
   const page = await context.newPage();
 
   logger( 'info', `Opening ${ SUPERMARKET.URL }` );
-  await page.goto( SUPERMARKET.URL, { timeout: 60000 });
+  await page.goto( SUPERMARKET.URL, { timeout: 60000 } );
 
   logger( 'info', `${ supermarket } - Searching for ${ productName }` );
   await toSearch( page, SUPERMARKET, productName );

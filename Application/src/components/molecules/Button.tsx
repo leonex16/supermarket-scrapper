@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import styles from '@Application/styles/molecules/Button.module.scss'
+import styles from '@Application/styles/molecules/Button.module.scss';
 
 export enum ButtonColor {
   Primary = 'scr-btn--primary'
@@ -9,16 +9,16 @@ export enum ButtonColor {
 export interface ButtonProps {
   color: ButtonColor;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  text: string; 
+  text: string;
 }
 
-export function Button( {color, onClick, text}: ButtonProps ) {
+export function Button( { color, onClick, text }: ButtonProps ) {
   return (
     <button
-      className={`${styles['scr-btn']} ${styles[color]}`}
+      className={`${ styles[ 'scr-btn' ] } ${ styles[ color ] }`}
       onClick={onClick} tabIndex={1}
     >
       { text }
     </button>
-  )
+  );
 }

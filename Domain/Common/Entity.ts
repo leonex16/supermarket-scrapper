@@ -22,5 +22,4 @@ export class Entity {
   set updatedAt( updatedAt: Date ) {
     this._updatedAt = updatedAt;
   }
-
 }

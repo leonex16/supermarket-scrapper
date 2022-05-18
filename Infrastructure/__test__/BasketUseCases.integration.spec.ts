@@ -11,14 +11,13 @@ const product = Object.freeze( {
   'detail': {
     'normalPrice': 'product-normal-price',
     'bestPrice': 'product-best-price',
-    'unit': 'product-unit'
+    'unit': 'product-unit',
   },
   'image': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url',
-  'source': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url'
+  'source': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url',
 } );
 
 describe( 'BasketRepositoryImplementInMemory', () => {
-  
   describe( 'Create a new instance', () => {
     it( 'Should be an instance of BasketRepositoryImplementInMemory', () => {
       const basketRepository = new BasketRepositoryImplementInMemory();
@@ -38,23 +37,21 @@ describe( 'BasketRepositoryImplementInMemory', () => {
               'detail': {
                 'normalPrice': 'product-normal-price',
                 'bestPrice': 'product-best-price',
-                'unit': 'product-unit'
+                'unit': 'product-unit',
               },
               'image': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url',
-              'source': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url'
-            }
-          ]
-        }
+              'source': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url',
+            },
+          ],
+        },
       ] );
 
       expect( basketRepository ).toBeInstanceOf( BasketRepositoryImplementInMemory );
     } );
   } );
-
 } );
 
 describe( 'BasketUseCases', () => {
-
   describe( 'CreateBaskteUseCase', () => {
     it( 'Should create an instance of basket', () => {
       const createBaskteUseCase = new BasketUseCases.CreateBaskteUseCase();
@@ -71,7 +68,7 @@ describe( 'BasketUseCases', () => {
 
     beforeEach( () => {
       basket = createBaskteUseCase.execute();
-      newProduct = {  ...product };
+      newProduct = { ...product };
     } );
 
     it( 'Should add two products in the basket', () => {
@@ -91,7 +88,6 @@ describe( 'BasketUseCases', () => {
         .toThrowError( 'The name value is required' );
     } );
 
-
     it( 'Should throws an error when add a product without unit', () => {
       delete newProduct.detail.unit;
       const addProductUseCase = new BasketUseCases.AddProductUseCase( basket );
@@ -99,7 +95,6 @@ describe( 'BasketUseCases', () => {
       expect( () => addProductUseCase.execute( newProduct ) )
         .toThrowError( 'The unit value is required' );
     } );
-
   } );
 
   describe( 'RemoveProductUseCase', () => {
@@ -112,10 +107,10 @@ describe( 'BasketUseCases', () => {
       'detail': {
         'normalPrice': 'product-normal-price',
         'bestPrice': 'product-best-price',
-        'unit': 'product-unit'
+        'unit': 'product-unit',
       },
       'image': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url',
-      'source': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url'
+      'source': 'https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url',
     };
 
     it( 'Should remove by product id', () => {
@@ -137,11 +132,10 @@ describe( 'BasketUseCases', () => {
 
       expect( basket.items ).toHaveLength( 1 );
     } );
-
   } );
 
   describe( 'SaveBasketUseCase', () => {
-    it( 'Should save a basket where the repository configuration specifies', async() => {
+    it( 'Should save a basket where the repository configuration specifies', async () => {
       const uuid = new UUIDImplementation();
       const basketRepository = new BasketRepositoryImplementInMemory();
       const createBaskteUseCase = new BasketUseCases.CreateBaskteUseCase();
@@ -155,7 +149,7 @@ describe( 'BasketUseCases', () => {
   } );
 
   describe( 'GetBasketByIdUseCase', () => {
-    it( 'Should save and get basket from the method', async() => {
+    it( 'Should save and get basket from the method', async () => {
       const uuid = new UUIDImplementation();
       const basketRepository = new BasketRepositoryImplementInMemory();
       const createBaskteUseCase = new BasketUseCases.CreateBaskteUseCase();

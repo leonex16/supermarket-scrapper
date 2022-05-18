@@ -4,10 +4,10 @@ import { SearchBox as Component, SearchBoxProps } from '@Application/src/compone
 export function SearchBoxWithErrorOfLadle() {
   const props: SearchBoxProps = {
     handleSubmit: e => {
-      console.log(e.target)
+      console.log( e.target );
     },
-    placeholder: 'Search box placeholder...'
-  }
+    placeholder: 'Search box placeholder...',
+  };
 
   return (
     <>

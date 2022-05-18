@@ -3,14 +3,14 @@ import { ElementHandle, Locator, Page } from 'playwright';
 import { NotFoundProductException } from '@server/scrapper/errors/index';
 import { Product as IProduct, RawProduct, Supermarket } from '@server/interfaces/index';
 
-const getUrlsFromLocatorElement = async( locator: Locator, attribute: string ) => {
+const getUrlsFromLocatorElement = async ( locator: Locator, attribute: string ) => {
   const elements = await locator.elementHandles();
   const promiseUrls = elements.map( ( element: ElementHandle ) => element.getAttribute( attribute ) );
 
   return Promise.all( promiseUrls );
 };
 
-export const scrollBottom = async( page: Page ) => {
+export const scrollBottom = async ( page: Page ) => {
   page.evaluate( () => {
     for ( let i = 0; i < document.body.scrollHeight; i += 50 ) {
       window.scrollTo( 0, i );

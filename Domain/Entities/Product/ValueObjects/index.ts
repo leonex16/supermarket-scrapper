@@ -5,12 +5,11 @@ import { Price } from './Price';
 import { Source } from './Source';
 import { Unit } from './Unit';
 
-
 export {
   Name,
   Description,
   Image,
   Price,
   Source,
-  Unit
+  Unit,
 };

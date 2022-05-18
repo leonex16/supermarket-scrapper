@@ -27,7 +27,7 @@ export class BasketRepositoryImplementInMemory implements BasketCommandRepositor
   async saveBasket( basket: Basket ): Promise<Basket> {
     try {
       this._basketInMemory.push( basket );
-    } catch( error ) {
+    } catch ( error ) {
       logException( __filename, error );
     }
 
@@ -39,8 +39,7 @@ export class BasketRepositoryImplementInMemory implements BasketCommandRepositor
       .map( ( basket: any ) => Basket
         .create( {
           id: basket.id,
-          items: basket.items.map( ( p: any )=> Product.create( p ) )
+          items: basket.items.map( ( p: any ) => Product.create( p ) ),
         } ) );
   }
-
 }

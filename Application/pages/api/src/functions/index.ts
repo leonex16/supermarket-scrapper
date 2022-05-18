@@ -19,7 +19,7 @@ export const logger = ( type: ConsoleKeys, ...args: any[] ) => {
   const sepBottom = `${ separator() }*${ separator( type.length ) }*${ separator() }`;
 
   clgFn( sepTop );
-  clgFn( `[ ${new Date().toISOString()} ] `, ...args );
+  clgFn( `[ ${ new Date().toISOString() } ] `, ...args );
   clgFn( sepBottom );
 };
 

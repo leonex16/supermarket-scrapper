@@ -13,6 +13,7 @@ module.exports = {
   rootDir: '.',
   testRegex: '(spec.tsx?)',
   verbose: false,
+  setupFilesAfterEnv: [ '@testing-library/jest-dom/extend-expect' ],
   moduleNameMapper: {
     '\\.(scss|sass|css)$': 'identity-obj-proxy',
     '@Application/(.*)': '<rootDir>/Application/$1',
@@ -21,7 +22,7 @@ module.exports = {
     '@Infrastructure/(.*)': '<rootDir>/Infrastructure/$1',
   },
   transform: {
-    "\\.tsx?$": "ts-jest",
+    '\\.tsx?$': 'ts-jest',
   },
   globals: {
     'ts-jest': {

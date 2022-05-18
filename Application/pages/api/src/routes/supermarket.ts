@@ -8,7 +8,7 @@ import { getProducts } from '@server/scrapper/useCases/getProducts';
 
 const routerSupermarket = new Router( { prefix: '/supermarket' } );
 
-routerSupermarket.get( '/', async( ctx: Context ) => {
+routerSupermarket.get( '/', async ( ctx: Context ) => {
   const productName = ctx.query.qproduct as string;
   const supermarket = ctx.query.qsupermarket as string;
 

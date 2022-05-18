@@ -1,7 +1,6 @@
 import { UUIDImplementation } from '../../Libraries/index';
 
 describe( 'UUID implementation with uuid library', () => {
-
   describe( 'Generate method', () => {
     it( 'Should generate a uuid', () => {
       const uuid = new UUIDImplementation();

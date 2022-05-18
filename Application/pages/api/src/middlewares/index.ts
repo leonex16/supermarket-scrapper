@@ -6,7 +6,7 @@ import { I18N, StatusCodes } from '@server/i18n/index';
 import { logger, removeQueryString } from '@server/functions/index';
 
 export function timer() {
-  return async function( ctx: Context, next: Next ) {
+  return async function ( ctx: Context, next: Next ) {
     const path = removeQueryString( ctx.url );
 
     console.time( path );
@@ -16,10 +16,10 @@ export function timer() {
 }
 
 export function handleResponse() {
-  return async function( ctx: Context, next: Next ) {
+  return async function ( ctx: Context, next: Next ) {
     const responseHttp = new ResponseHttp();
 
-    ctx.set('Content-Type', 'application/json');
+    ctx.set( 'Content-Type', 'application/json' );
 
     try {
       const data = await next();
@@ -42,7 +42,7 @@ export function handleResponse() {
 }
 
 export function handle404() {
-  return async function( ctx: Context ) {
+  return async function ( ctx: Context ) {
     const responseHttp = new ResponseHttp();
     const statusCode = STATUS_CODES.NOT_FOUND as StatusCodes;
 

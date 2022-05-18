@@ -14,7 +14,8 @@
     "koa": "2.13.4",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "playwright": "1.21.1"
   },
   "devDependencies": {
     "@ef-carbon/tspm": "2.2.5",
@@ -31,7 +32,6 @@
     "@types/testing-library__react": "10.2.0",
     "eslint-config-next": "12.1.6",
     "identity-obj-proxy": "3.0.0",
-    "playwright": "1.21.1",
     "sass": "1.51.0",
     "supertest": "6.2.3"
   }

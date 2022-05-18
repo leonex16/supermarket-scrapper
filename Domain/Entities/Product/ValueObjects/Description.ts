@@ -19,7 +19,7 @@ export class Description {
     const descriptionTrimmed = description?.trim();
 
     if ( descriptionTrimmed.length > 50 ) throw new StrTooLargeException( 'description' );
-            
+
     return new Description( { description: descriptionTrimmed } );
   }
 }

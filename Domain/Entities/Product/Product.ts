@@ -6,7 +6,7 @@ import {
   Description,
   Image,
   Name,
-  Source
+  Source,
 } from './ValueObjects';
 
 interface ProductConstructor{
@@ -32,7 +32,6 @@ export interface ProductParams {
 }
 
 export class Product extends Entity {
-  
   private readonly _name: Name;
 
   private readonly _description: Description;
@@ -59,7 +58,7 @@ export class Product extends Entity {
   get name(): string {
     return this._name.value;
   }
-  
+
   get description(): string | null {
     return this._description.value;
   }
@@ -85,7 +84,7 @@ export class Product extends Entity {
   }
 
   static create( product: ProductParams ): Product {
-    const buildingProduct: ProductConstructor  = {
+    const buildingProduct: ProductConstructor = {
       id: product.id,
       name: Name.create( product ),
       description: Description.create( product ),
@@ -96,5 +95,4 @@ export class Product extends Entity {
 
     return new Product( buildingProduct );
   }
-
 }
