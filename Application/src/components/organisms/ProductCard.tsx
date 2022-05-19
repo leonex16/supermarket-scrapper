@@ -13,6 +13,7 @@ export interface ProductCardProps {
   price: string | null,
   image: string,
   source: string,
+  loading?: 'eager' | 'lazy'
 }
 
 export function ProductCard( product: ProductCardProps ) {
@@ -25,7 +26,7 @@ export function ProductCard( product: ProductCardProps ) {
   return (
     <article className={`${ styles[ 'scr-product-card' ] }`} role={'listitem'}>
       <a className={`${ styles[ 'scr-product-card__figure' ] }`} href={product.source} target={'_blank'} rel={'noopener noreferrer'} >
-        <img className={`${ styles[ 'scr-product-card__img' ] }`} src={product.image} alt={product.name}/>
+        <img className={`${ styles[ 'scr-product-card__img' ] }`} src={product.image} alt={product.name} loading={product.loading ?? 'eager'} />
       </a>
       <section className={`${ styles[ 'scr-product-card__body' ] }`}>
         <header className={`${ styles[ 'scr-product-card__header' ] }`}>
