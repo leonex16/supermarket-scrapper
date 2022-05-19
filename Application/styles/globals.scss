@@ -100,6 +100,15 @@ $padding--md: 16px;
 $padding--lg: 32px;
 $padding--xl: 64px;
 
+// https://polypane.app/blog/the-breakpoints-we-tested-in-2021-and-the-ones-to-test-in-2022/
+
+$bp--xs: 320px;
+$bp--sm: 640px;
+$bp--md: 768px;
+$bp--lg: 1024px;
+$bp--xl: 1280px;
+$bp--2xl: 1536px;
+
 /* Base */
 
 /* $ratio: 1.333 */
@@ -157,6 +166,13 @@ $padding--xl: 64px;
   --padding--md: #{$padding--md};
   --padding--lg: #{$padding--lg};
   --padding--xl: #{$padding--xl};
+
+  --bp--xs: #{$bp--xs};
+  --bp--sm: #{$bp--sm};
+  --bp--md: #{$bp--md};
+  --bp--lg: #{$bp--lg};
+  --bp--xl: #{$bp--xl};
+  --bp--2xl: #{$bp--2xl};
 }
 
 * { 
