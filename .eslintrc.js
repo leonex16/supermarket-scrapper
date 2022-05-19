@@ -10,6 +10,9 @@ const ENVS = {
       '@typescript-eslint/indent': [ VALUE_RULE.ERROR, 2 ],
       '@typescript-eslint/no-explicit-any': VALUE_RULE.OFF,
       '@typescript-eslint/no-unused-vars': [ VALUE_RULE.WARN, { varsIgnorePattern: '__' } ],
+      '@typescript-eslint/no-shadow': [ VALUE_RULE.ERROR ],
+      'no-shadow': VALUE_RULE.OFF,
+      'indent': VALUE_RULE.OFF,
     },
     EXTENDS: [
       'plugin:@typescript-eslint/recommended',
@@ -31,7 +34,9 @@ const ENVS = {
       'react-app/jest',
     ],
 
-    PLUGINS: [],
+    PLUGINS: [
+      'jest',
+    ],
   },
   REACT: {
     RULES: {
@@ -41,6 +46,7 @@ const ENVS = {
     EXTENDS: [
       'react-app',
       'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
     ],
 
     PLUGINS: [
@@ -66,7 +72,6 @@ const ENVS = {
       'array-bracket-spacing': [ VALUE_RULE.ERROR, 'always' ],
       'arrow-parens': [ VALUE_RULE.ERROR, 'as-needed' ],
       'computed-property-spacing': [ VALUE_RULE.ERROR, 'always' ],
-      'indent': [ VALUE_RULE.ERROR, 2 ],
       'import/extensions': VALUE_RULE.OFF,
       'import/no-unresolved': VALUE_RULE.OFF,
       'import/prefer-default-export': VALUE_RULE.OFF,
@@ -92,7 +97,7 @@ const ENVS = {
       'require-jsdoc': VALUE_RULE.OFF,
       'semi': [ VALUE_RULE.ERROR, 'always' ],
       'sort-imports': [ VALUE_RULE.ERROR, { allowSeparatedGroups: true, memberSyntaxSortOrder: [ 'none', 'all', 'single', 'multiple' ] } ],
-      'space-before-function-paren': [ VALUE_RULE.ERROR, 'never', { anonymous: 'always', asyncArrow: 'always', named: 'never' } ],
+      // 'space-before-function-paren': [ VALUE_RULE.ERROR, 'never', { anonymous: 'always', asyncArrow: 'always', named: 'never' } ],
       'space-in-parens': [ VALUE_RULE.ERROR, 'always', { exceptions: [ 'empty' ] } ],
       'template-curly-spacing': [ VALUE_RULE.ERROR, 'always' ],
       'func-names': VALUE_RULE.OFF,
@@ -109,9 +114,9 @@ const ENVS = {
     EXTENDS: {},
 
     PLUGINS: [
-      "testing-library"
-    ]
-  }
+      'testing-library',
+    ],
+  },
 };
 
 module.exports = {
@@ -139,17 +144,13 @@ module.exports = {
     ...ENVS.TS.PLUGINS,
     ...ENVS.ESLINT.PLUGINS,
     ...ENVS.REACT.PLUGINS,
-    ...ENVS.TESTING_LIBRARY.PLUGINS
+    ...ENVS.JEST.PLUGINS,
+    ...ENVS.TESTING_LIBRARY.PLUGINS,
   ],
   rules: {
     ...ENVS.TS.RULES,
     ...ENVS.JEST.RULES,
     ...ENVS.REACT.RULES,
     ...ENVS.ESLINT.RULES,
-    'jest/no-disabled-tests': VALUE_RULE.OFF,
-    'jest/no-identical-title': VALUE_RULE.OFF,
-    'jest/no-focused-tests': VALUE_RULE.OFF,
-    'jest/prefer-to-have-length': VALUE_RULE.OFF,
-    'jest/valid-expect': VALUE_RULE.OFF,
   },
 };
