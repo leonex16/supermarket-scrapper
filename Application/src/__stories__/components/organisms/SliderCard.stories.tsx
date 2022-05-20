@@ -4,7 +4,7 @@ import { SliderCard as Component } from '@Application/src/components/organisms/S
 import { ProductCardProps } from '@Application/src/components/organisms/ProductCard';
 
 export function SliderCard() {
-  const itemNumberToSlides = [ 6, 12, 18 ];
+  const itemNumberToSlides = [ 3, 6, 12, 18 ];
   const productProps: ProductCardProps = {
     name: 'Product Name',
     description: 'Product Description',

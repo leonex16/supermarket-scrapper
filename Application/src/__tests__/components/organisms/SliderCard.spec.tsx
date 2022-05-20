@@ -5,7 +5,7 @@ import { ProductCardProps } from '@Application/src/components/organisms/ProductC
 import { SliderCard, SliderCardProps } from '@Application/src/components/organisms/SliderCard';
 
 let container: HTMLElement;
-const ITEMS_IN_SLIDE = 3;
+// const ITEMS_IN_SLIDE = 3;
 const productProps: ProductCardProps = {
   name: 'Product Name',
   description: 'Product Description',
@@ -18,8 +18,19 @@ const props: SliderCardProps = {
   items: new Array( 9 ).fill( productProps ),
 };
 
+const intersectionObserverMock = jest.fn( () => ( {
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+} ) );
+const scrollToMock = jest.fn();
+window.IntersectionObserver = intersectionObserverMock as any;
+window.HTMLElement.prototype.scrollTo = scrollToMock;
+
 beforeEach( () => {
   container = render( <SliderCard {...props} /> ).container;
+  intersectionObserverMock.mockClear();
+  scrollToMock.mockClear();
 } );
 
 describe( '<SliderCard />', () => {
@@ -31,110 +42,115 @@ describe( '<SliderCard />', () => {
     expect( container.querySelector( 'button[aria-label="next item"]' ) ).toBeVisible();
   } );
 
-  test( 'should scroll when next and previous buttons are pressed', () => {
-    window.HTMLElement.prototype.scrollTo = jest.fn();
+  describe( 'Previous button', () => {
+    it( 'should it disabled when the component is rendered', () => {
+      const prevBtn = container.querySelector( 'button[aria-label="previous item"]' );
 
-    const buttonPrevious = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
-    const buttonNext = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
+      expect( prevBtn ).toBeVisible();
+      expect( prevBtn ).toBeDisabled();
+    } );
 
-    fireEvent.click( buttonNext );
-    fireEvent.click( buttonPrevious );
+    // it( 'should change state on the button, depending on the buttons pressed', () => {
+    //   const prevBtn = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
+    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
 
-    expect( window.HTMLElement.prototype.scrollTo ).toHaveBeenCalledTimes( 2 );
+    //   expect( prevBtn ).not.toBeVisible();
+    //   expect( prevBtn ).toBeDisabled();
+
+    //   fireEvent.click( nextBtn );
+
+    //   expect( prevBtn ).toBeVisible();
+    //   expect( prevBtn ).not.toBeDisabled();
+    // } );
   } );
 
-  // describe( 'Button next', () => {
-  // it( 'should it disabled when there are no pages/slides/items below', () => {
-  //   const buttonNext = container.querySelector( 'button[aria-label="previous next"]' ) as HTMLElement;
-  //   const clickNumberToDisableTheButton = props.items.length;
+  describe( 'Next button', () => {
+    it( 'should it not disabled when the component is rendered', () => {
+      const nextBtn = container.querySelector( 'button[aria-label="next item"]' );
 
-  //   for ( let i = 0; i < clickNumberToDisableTheButton; i++ ) {
-  //     fireEvent.click( buttonNext );
-  //   }
+      expect( nextBtn ).toBeVisible();
+      expect( nextBtn ).not.toBeDisabled();
+    } );
 
-  //   expect( buttonNext ).toBeVisible();
-  //   expect( buttonNext ).toBeDisabled();
-  // } );
+    // it( 'should it disabled when there are no pages/slides/items below', () => {
+    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
+    //   const clickNumberToDisableTheButton = props.items.length;
 
-  // it( 'should change the items when press button', () => {
-  //   const buttonNext = container.querySelector( 'button[aria-label="previous next"]' ) as HTMLElement;
-  //   const items = screen.getAllByRole( 'listitem' );
+    //   for ( let i = 0; i < clickNumberToDisableTheButton; i++ ) {
+    //     fireEvent.click( nextBtn );
+    //   }
 
-  //   // Check the visibility of the items
-  //   items.forEach( ( item, i ) => {
-  //     const isItemVisible = i < ITEMS_IN_SLIDE;
+    //   expect( nextBtn ).toBeVisible();
+    //   expect( nextBtn ).toBeDisabled();
+    // } );
 
-  //     ( isItemVisible )
-  //       ? expect( item ).toBeVisible()
-  //       : expect( item ).not.toBeVisible();
-  //   } );
+    // it( 'should change the items when press button', () => {
+    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
+    //   const items = screen.getAllByRole( 'listitem' );
 
-  //   for ( let i = 0; i < ITEMS_IN_SLIDE; i++ ) {
-  //     fireEvent.click( buttonNext );
-  //   }
+    //   // Check the visibility of the items
+    //   items.forEach( ( item, i ) => {
+    //     const isItemVisible = i < ITEMS_IN_SLIDE;
 
-  //   // Check the visibility of the items after clicks
-  //   items.forEach( ( item, i ) => {
-  //     const isItemVisible = i >= ITEMS_IN_SLIDE || i < ITEMS_IN_SLIDE * 2;
+    //     ( isItemVisible )
+    //       ? expect( item ).toBeVisible()
+    //       : expect( item ).not.toBeVisible();
+    //   } );
 
-  //     ( isItemVisible )
-  //       ? expect( item ).toBeVisible()
-  //       : expect( item ).not.toBeVisible();
-  //   } );
-  // } );
+    //   for ( let i = 0; i < ITEMS_IN_SLIDE; i++ ) {
+    //     fireEvent.click( nextBtn );
+    //   }
 
-  // it( 'should change state on the button, depending on the buttons pressed', () => {
-  //   const buttonPrevious = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
-  //   const buttonNext = container.querySelector( 'button[aria-label="previous next"]' ) as HTMLElement;
-  //   const clickNumberToDisableTheButton = props.items.length;
+    //   // Check the visibility of the items after clicks
+    //   items.forEach( ( item, i ) => {
+    //     const isItemVisible = i >= ITEMS_IN_SLIDE || i < ITEMS_IN_SLIDE * 2;
 
-  //   expect( buttonNext ).toBeVisible();
-  //   expect( buttonNext ).not.toBeDisabled();
+    //     ( isItemVisible )
+    //       ? expect( item ).toBeVisible()
+    //       : expect( item ).not.toBeVisible();
+    //   } );
+    // } );
 
-  //   for ( let i = 0; i < clickNumberToDisableTheButton; i++ ) {
-  //     fireEvent.click( buttonNext );
-  //   }
+    // it( 'should change state on the button, depending on the buttons pressed', () => {
+    //   const prevBtn = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
+    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
+    //   const clickNumberToDisableTheButton = props.items.length;
 
-  //   expect( buttonNext ).toBeVisible();
-  //   expect( buttonNext ).toBeDisabled();
+    //   expect( nextBtn ).toBeVisible();
+    //   expect( nextBtn ).not.toBeDisabled();
 
-  //   fireEvent.click( buttonPrevious );
+    //   for ( let i = 0; i < clickNumberToDisableTheButton; i++ ) {
+    //     fireEvent.click( nextBtn );
+    //   }
 
-  //   expect( buttonNext ).toBeVisible();
-  //   expect( buttonNext ).not.toBeDisabled();
-  // } );
-  // } );
+    //   expect( nextBtn ).toBeVisible();
+    //   expect( nextBtn ).toBeDisabled();
 
-  // describe( 'Button previous', () => {
-  // it( 'should it disabled when the component is rendered', () => {
-  //   const buttonPrevious = container.querySelector( 'button[aria-label="previous item"]' );
+    //   fireEvent.click( prevBtn );
 
-  //   expect( buttonPrevious ).toBeVisible();
-  //   expect( buttonPrevious ).toBeDisabled();
-  // } );
+    //   expect( nextBtn ).toBeVisible();
+    //   expect( nextBtn ).not.toBeDisabled();
+    // } );
+  } );
 
-  // it( 'should change state on the button, depending on the buttons pressed', () => {
-  //   const buttonPrevious = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
-  //   const buttonNext = container.querySelector( 'button[aria-label="previous next"]' ) as HTMLElement;
+  test( 'Disable buttons when the items to be less or equal then ITEMS_IN_SLIDE', () => {
+    const renderResult = render( <SliderCard items={[ productProps ]} /> );
+    const prevBtn = renderResult.container.querySelector( 'button[aria-label="previous item"]' );
+    const nextBtn = renderResult.container.querySelector( 'button[aria-label="next item"]' );
+    expect( prevBtn ).toHaveAttribute( 'aria-disabled', 'true' );
+    expect( nextBtn ).toHaveAttribute( 'aria-disabled', 'true' );
 
-  //   expect( buttonPrevious ).toBeVisible();
-  //   expect( buttonPrevious ).toBeDisabled();
+    expect( prevBtn ).toBeDisabled();
+    expect( nextBtn ).toBeDisabled();
+  } );
 
-  //   fireEvent.click( buttonNext );
+  // test( 'should scroll when next and previous buttons are pressed', () => {
+  //   const prevBtn = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
+  //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
 
-  //   expect( buttonPrevious ).toBeVisible();
-  //   expect( buttonPrevious ).not.toBeDisabled();
-  // } );
-  // } );
+  //   fireEvent.click( nextBtn );
+  //   fireEvent.click( prevBtn );
 
-  // test( 'Disable buttons when the items to be less or equal then ITEMS_IN_SLIDE', () => {
-  //   const renderResult = render( <SliderCard {...props} /> );
-  //   const buttonPrevious = renderResult.container.querySelector( 'button[aria-label="previous item"]' );
-  //   const buttonNext = renderResult.container.querySelector( 'button[aria-label="previous next"]' );
-
-  //   expect( buttonPrevious ).toBeVisible();
-  //   expect( buttonPrevious ).toBeDisabled();
-  //   expect( buttonNext ).toBeVisible();
-  //   expect( buttonNext ).toBeDisabled();
+  //   expect( window.HTMLElement.prototype.scrollTo ).toHaveBeenCalledTimes( 2 );
   // } );
 } );
