@@ -1,10 +1,10 @@
 import React from 'react';
 import { SearchBox as Component, SearchBoxProps } from '@Application/src/components/molecules/SearchBox';
 
-export function SearchBoxWithErrorOfLadle() {
+export function SearchBox() {
   const props: SearchBoxProps = {
     handleSubmit: e => {
-      console.log( e.target );
+      console.info( e.target );
     },
     placeholder: 'Search box placeholder...',
   };

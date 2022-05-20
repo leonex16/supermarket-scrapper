@@ -1,20 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import Image from 'next/image';
 
-import styles from '@Application/styles/molecules/SearchBox.module.scss'
+import iconSearch from '@Application/public/icons/search.svg';
+import styles from '@Application/styles/molecules/SearchBox.module.scss';
 
 export interface SearchBoxProps {
   handleSubmit: React.FormEventHandler<HTMLFormElement>,
   placeholder: string,
 }
 
-export function SearchBox({handleSubmit, placeholder}: SearchBoxProps) {
+export function SearchBox( { handleSubmit, placeholder }: SearchBoxProps ) {
   return (
-    <form className={`${styles['scr-search-box']}`} onSubmit={handleSubmit} role={'searchbox'} >
-      <input className={`${styles['scr-search-box__input']}`} placeholder={placeholder} name="search-input" type="text" />
-      <button className={`${styles['scr-search-box__btn']}`}>
-        <Image src="/icons/search.svg" alt="search button" role={'search'} width={24} height={24}  />
+    <form className={`${ styles[ 'scr-search-box' ] }`} onSubmit={handleSubmit} role={'searchbox'} >
+      <input className={`${ styles[ 'scr-search-box__input' ] }`} placeholder={placeholder} name="search-input" type="text" />
+      <button className={`${ styles[ 'scr-search-box__btn' ] }`}>
+        <img src={iconSearch} alt="Search Icon" width={24} height={24} />
       </button>
     </form>
-  )
+  );
 }
