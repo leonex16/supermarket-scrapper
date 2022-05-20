@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { chromium } from 'playwright';
+import { render, screen } from '@testing-library/react';
 
 import { ProductCardProps } from '@Application/src/components/organisms/ProductCard';
 import { SliderCard, SliderCardProps } from '@Application/src/components/organisms/SliderCard';
@@ -24,8 +25,12 @@ const intersectionObserverMock = jest.fn( () => ( {
   disconnect: jest.fn(),
 } ) );
 const scrollToMock = jest.fn();
+
 window.IntersectionObserver = intersectionObserverMock as any;
 window.HTMLElement.prototype.scrollTo = scrollToMock;
+window.setImmediate = window.setTimeout as any;
+
+jest.setTimeout( 30000 );
 
 beforeEach( () => {
   container = render( <SliderCard {...props} /> ).container;
@@ -49,19 +54,6 @@ describe( '<SliderCard />', () => {
       expect( prevBtn ).toBeVisible();
       expect( prevBtn ).toBeDisabled();
     } );
-
-    // it( 'should change state on the button, depending on the buttons pressed', () => {
-    //   const prevBtn = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
-    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
-
-    //   expect( prevBtn ).not.toBeVisible();
-    //   expect( prevBtn ).toBeDisabled();
-
-    //   fireEvent.click( nextBtn );
-
-    //   expect( prevBtn ).toBeVisible();
-    //   expect( prevBtn ).not.toBeDisabled();
-    // } );
   } );
 
   describe( 'Next button', () => {
@@ -72,17 +64,19 @@ describe( '<SliderCard />', () => {
       expect( nextBtn ).not.toBeDisabled();
     } );
 
-    // it( 'should it disabled when there are no pages/slides/items below', () => {
-    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
-    //   const clickNumberToDisableTheButton = props.items.length;
+    it( 'should it disabled when there are no pages/slides/items below', async () => {
+      const browser = await chromium.launch();
+      const page = await browser.newPage();
 
-    //   for ( let i = 0; i < clickNumberToDisableTheButton; i++ ) {
-    //     fireEvent.click( nextBtn );
-    //   }
+      await page.goto( 'http://localhost:61001/?story=slider-card--slider-card' );
 
-    //   expect( nextBtn ).toBeVisible();
-    //   expect( nextBtn ).toBeDisabled();
-    // } );
+      expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isEnabled() ).toBeTruthy();
+
+      await page.locator( 'button[aria-label="next item"] >> nth=1' ).click( { clickCount: 2, delay: 200 } );
+      await page.waitForTimeout( 500 );
+
+      expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isDisabled() ).toBeTruthy();
+    } );
 
     // it( 'should change the items when press button', () => {
     //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
@@ -110,47 +104,39 @@ describe( '<SliderCard />', () => {
     //       : expect( item ).not.toBeVisible();
     //   } );
     // } );
+  } );
 
-    // it( 'should change state on the button, depending on the buttons pressed', () => {
-    //   const prevBtn = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
-    //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
-    //   const clickNumberToDisableTheButton = props.items.length;
+  it( 'should change state on the button, depending on the buttons pressed', async () => {
+    const browser = await chromium.launch();
+    const page = await browser.newPage();
 
-    //   expect( nextBtn ).toBeVisible();
-    //   expect( nextBtn ).not.toBeDisabled();
+    await page.goto( 'http://localhost:61001/?story=slider-card--slider-card' );
 
-    //   for ( let i = 0; i < clickNumberToDisableTheButton; i++ ) {
-    //     fireEvent.click( nextBtn );
-    //   }
+    expect( await page.locator( 'button[aria-label="previous item"] >> nth=1' ).isDisabled() ).toBeTruthy();
+    expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isEnabled() ).toBeTruthy();
 
-    //   expect( nextBtn ).toBeVisible();
-    //   expect( nextBtn ).toBeDisabled();
+    await page.locator( 'button[aria-label="next item"] >> nth=1' ).click();
+    await page.waitForTimeout( 500 );
 
-    //   fireEvent.click( prevBtn );
+    expect( await page.locator( 'button[aria-label="previous item"] >> nth=1' ).isEnabled() ).toBeTruthy();
+    expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isEnabled() ).toBeTruthy();
 
-    //   expect( nextBtn ).toBeVisible();
-    //   expect( nextBtn ).not.toBeDisabled();
-    // } );
+    await page.locator( 'button[aria-label="next item"] >> nth=1' ).click();
+    await page.waitForTimeout( 500 );
+
+    expect( await page.locator( 'button[aria-label="previous item"] >> nth=1' ).isEnabled() ).toBeTruthy();
+    expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isDisabled() ).toBeTruthy();
   } );
 
   test( 'Disable buttons when the items to be less or equal then ITEMS_IN_SLIDE', () => {
     const renderResult = render( <SliderCard items={[ productProps ]} /> );
     const prevBtn = renderResult.container.querySelector( 'button[aria-label="previous item"]' );
     const nextBtn = renderResult.container.querySelector( 'button[aria-label="next item"]' );
+
     expect( prevBtn ).toHaveAttribute( 'aria-disabled', 'true' );
     expect( nextBtn ).toHaveAttribute( 'aria-disabled', 'true' );
 
     expect( prevBtn ).toBeDisabled();
     expect( nextBtn ).toBeDisabled();
   } );
-
-  // test( 'should scroll when next and previous buttons are pressed', () => {
-  //   const prevBtn = container.querySelector( 'button[aria-label="previous item"]' ) as HTMLElement;
-  //   const nextBtn = container.querySelector( 'button[aria-label="next item"]' ) as HTMLElement;
-
-  //   fireEvent.click( nextBtn );
-  //   fireEvent.click( prevBtn );
-
-  //   expect( window.HTMLElement.prototype.scrollTo ).toHaveBeenCalledTimes( 2 );
-  // } );
 } );
