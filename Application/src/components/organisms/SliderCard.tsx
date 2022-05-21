@@ -1,10 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import React, {
-  useEffect, useId, useRef, useState,
+  Suspense, useEffect, useRef, useState,
 } from 'react';
 
-import { ProductCard, ProductCardProps } from '@Application/src/components/organisms/ProductCard';
+import { ProductCardLoader } from '@Application/src/components/molecules/ProductCardLoader';
+import { ProductCardProps } from '@Application/src/components/organisms/ProductCard';
 
 import styles from '@Application/styles/organisms/SliderCard.module.scss';
+
+const ProductCard = React.lazy( () => import( '@Application/src/components/organisms/ProductCard' ).then( module => ( { default: module.ProductCard } ) ) );
 
 export interface SliderCardProps {
   items: ProductCardProps[];
@@ -21,11 +25,11 @@ export function SliderCard( { items }: SliderCardProps ) {
 
     if ( $slidesContainer === null ) return;
 
-    const MAX_SIZE_PRODUCT_CARD = 250 * 2;
+    const SIZE_PRODUCT_CARD = 250 * 2;
     const { scrollLeft } = $slidesContainer;
     const toScroll = ( action === 'prev' )
-      ? scrollLeft - MAX_SIZE_PRODUCT_CARD
-      : scrollLeft + MAX_SIZE_PRODUCT_CARD;
+      ? scrollLeft - SIZE_PRODUCT_CARD
+      : scrollLeft + SIZE_PRODUCT_CARD;
 
     $slidesContainer.scrollTo( { left: toScroll, behavior: 'smooth' } );
   };
@@ -81,31 +85,35 @@ export function SliderCard( { items }: SliderCardProps ) {
     };
   } );
 
-  return items.length === 0
-    ? ( <p>Sin Productos...</p> )
-    : (
-      <article className={`${ styles[ 'scr-slider' ] }`}>
-        <button
-          className={`${ styles[ 'scr-slider__btn' ] } ${ styles[ 'scr-slider__btn--prev' ] }`}
-          onClick={() => handleClick( 'prev' )}
-          aria-label={'previous item'}
-          aria-disabled={!showPrevBtn}
-          disabled={!showPrevBtn}
-        />
-        <div ref={itemsContainerRef} className={`${ styles[ 'scr-slider__items' ] }`}>
-          {items.map( ( item, index ) => (
-            <section className={`${ styles[ 'scr-slider__item' ] }`} key={`${ index }-${ item.name }`} data-id={index}>
-              <ProductCard {...item} />
-            </section>
-          ) )}
-        </div>
-        <button
-          className={`${ styles[ 'scr-slider__btn' ] } ${ styles[ 'scr-slider__btn--next' ] }`}
-          onClick={() => handleClick( 'next' )}
-          aria-label={'next item'}
-          aria-disabled={!showNextBtn}
-          disabled={!showNextBtn}
-        />
-      </article>
-    );
+  return (
+    <article className={`${ styles[ 'scr-slider' ] }`}>
+      <button
+        className={`${ styles[ 'scr-slider__btn' ] } ${ styles[ 'scr-slider__btn--prev' ] }`}
+        onClick={() => handleClick( 'prev' )}
+        aria-label={'previous item'}
+        aria-disabled={!showPrevBtn}
+        disabled={!showPrevBtn}
+      />
+      <div ref={itemsContainerRef} className={`${ styles[ 'scr-slider__items' ] }`}>
+        {
+          (
+            items.map( ( item, index ) => (
+              <section className={`${ styles[ 'scr-slider__item' ] }`} key={`${ index }-${ item.name }`} >
+                <Suspense fallback={<ProductCardLoader/>}>
+                  <ProductCard {...item} />
+                </Suspense>
+              </section>
+            ) )
+          )
+        }
+      </div>
+      <button
+        className={`${ styles[ 'scr-slider__btn' ] } ${ styles[ 'scr-slider__btn--next' ] }`}
+        onClick={() => handleClick( 'next' )}
+        aria-label={'next item'}
+        aria-disabled={!showNextBtn}
+        disabled={!showNextBtn}
+      />
+    </article>
+  );
 }
