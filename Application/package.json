@@ -10,28 +10,27 @@
   },
   "dependencies": {
     "@koa/router": "10.1.1",
-    "dotenv": "16.0.0",
+    "dotenv": "16.0.1",
     "koa": "2.13.4",
     "next": "12.1.6",
+    "playwright": "1.22.1",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "playwright": "1.21.1"
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
     "@ef-carbon/tspm": "2.2.5",
     "@ladle/react": "0.15.1",
-    "@ngneat/falso": "5.1.0",
+    "@ngneat/falso": "5.3.0",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.2.0",
     "@types/koa": "2.13.4",
     "@types/koa__router": "8.0.11",
-    "@types/react": "18.0.8",
-    "@types/react-dom": "18.0.0",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.4",
     "@types/supertest": "2.0.12",
     "@types/testing-library__jest-dom": "5.14.3",
-    "@types/testing-library__react": "10.2.0",
     "eslint-config-next": "12.1.6",
-    "identity-obj-proxy": "3.0.0",
+    "jest-environment-jsdom": "^28.1.0",
     "sass": "1.51.0",
     "supertest": "6.2.3"
   }
