@@ -10,14 +10,16 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@Application/*": [
         "*"
       ],
-      "@Application/*": [ "*" ],
       "@server/*": [
         "pages/api/src/*"
+      ],
+      "@Domain/*": [
+        "../Domain/*"
       ]
-    },
+    }
   },
   "include": [
     "next-env.d.ts",

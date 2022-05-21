@@ -35,7 +35,9 @@ export function handleResponse() {
       logger( 'error', { url: ctx.url, error } );
       responseHttp.handleError( error );
     } finally {
+      // eslint-disable-next-line require-atomic-updates
       ctx.status = responseHttp.statusCode;
+      // eslint-disable-next-line require-atomic-updates
       ctx.body = responseHttp.toJSON();
     }
   };

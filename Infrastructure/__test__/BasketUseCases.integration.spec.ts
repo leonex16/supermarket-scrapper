@@ -1,6 +1,5 @@
-/* eslint-disable sort-imports */
-import { Basket } from '../../Domain/Entities/Basket/Basket';
-import * as BasketUseCases from '../../Domain/Entities/Basket/UseCases/index';
+import * as BasketUseCases from '@Domain/Entities/Basket/UseCases/index';
+import { Basket } from '@Domain/Entities/Basket/Basket';
 import { BasketRepositoryImplementInMemory } from '../Implementations/InMemory/BasketRepositoryImplementInMemory';
 import { UUIDImplementation } from '../Libraries/index';
 

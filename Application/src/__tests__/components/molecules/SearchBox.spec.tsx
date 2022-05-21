@@ -20,7 +20,9 @@ describe( '<SearchBox />', () => {
 
   test( 'Check if fire onSubmit event pressing enter', () => {
     const { container } = render( <SearchBox {...props} /> );
-    const form = container.querySelector( 'form' )!;
+    const form = container.querySelector( 'form' );
+
+    if ( form === null ) throw new Error( 'Form not found' );
 
     fireEvent.submit( form );
 
@@ -29,7 +31,9 @@ describe( '<SearchBox />', () => {
 
   test( 'Check if fire onSubmit event pressing button', () => {
     const { container } = render( <SearchBox {...props} /> );
-    const btn = container.querySelector( 'button' )!;
+    const btn = container.querySelector( 'button' );
+
+    if ( btn === null ) throw new Error( 'Button not found' );
 
     fireEvent.click( btn );
 

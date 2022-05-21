@@ -1,6 +1,6 @@
 /* eslint-disable import/order */
 import { routerRoot } from '@server/routes/index';
-import { serverKoa } from '@/server';
+import { serverKoa } from '@Application/server';
 
 import { handle404, handleResponse, timer } from '@server/middlewares/index';
 
