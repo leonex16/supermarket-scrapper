@@ -17,7 +17,7 @@ module.exports = {
   verbose: false,
   setupFilesAfterEnv: [ '@testing-library/jest-dom/extend-expect' ],
   moduleNameMapper: {
-    '\\.(scss|sass|css)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|scss|sass|css)$': '<rootDir>/Application/src/__tests__/__mocks__/fileTransformer.ts',
     '@Application/(.*)': '<rootDir>/Application/$1',
     '@server/(.*)': '<rootDir>/Application/pages/api/src/$1',
     '@Domain/(.*)': '<rootDir>/Domain/$1',
