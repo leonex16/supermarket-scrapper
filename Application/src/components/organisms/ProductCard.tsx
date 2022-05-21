@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { Str } from '@Application/src/functions';
 import { Button, ButtonColor, ButtonProps } from '@Application/src/components/molecules/Button';
 
 import noImage from '@Application/public/no-image.png';
@@ -43,7 +44,7 @@ export function ProductCard( product: ProductCardProps ) {
       <section className={`${ styles[ 'scr-product-card__body' ] }`}>
         <header className={`${ styles[ 'scr-product-card__header' ] }`}>
           <p className={`${ styles[ 'scr-product-card__name' ] }`}>{product.name}</p>
-          <p className={`${ styles[ 'scr-product-card__description' ] }`}>{product.description}</p>
+          <p className={`${ styles[ 'scr-product-card__description' ] }`}>{Str.truncate( product.description ?? '', 41 )}</p>
         </header>
         <div>
           <span className={`${ styles[ 'scr-product-card__price' ] }`}>{product.price}</span>
