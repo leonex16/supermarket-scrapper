@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 const TS_CONFIG = {
   APPLICATION: 'Application/tsconfig.json',
+  SERVER: 'Application/tsconfig.json',
   DOMAIN: 'Domain/tsconfig.json',
   INFRASTRUCTURE: 'Infrastructure/tsconfig.json',
 };
@@ -9,7 +11,7 @@ const pathToTsConfig = TS_CONFIG[ process.env.LAYERS_TEST_ENV ];
 /** @type {import('ts-jest').InitialOptionsTsJest} */
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: process.env.LAYERS_TEST_ENV === 'APPLICATION' ? 'jsdom' : 'node',
   rootDir: '.',
   testRegex: '(spec.tsx?)',
   verbose: false,
@@ -28,9 +30,6 @@ module.exports = {
     'ts-jest': {
       useESM: true,
       tsconfig: pathToTsConfig,
-      // diagnostics: {
-      //   exclude: [ '**' ],
-      // },
       diagnostics: false,
     },
   },
