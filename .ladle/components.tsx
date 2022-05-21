@@ -7,7 +7,7 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
   const title = componentName.charAt(0).toUpperCase() + componentName.slice(1)
   
   return (
-    <main>
+    <main style={{minHeight: '100vh'}}>
       <header>
         <h1>{title}</h1>
       </header>
