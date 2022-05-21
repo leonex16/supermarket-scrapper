@@ -4,6 +4,7 @@
   border-radius: var(--border-radius--md);
   padding: 20px;
 
+  min-width: 250px;
   max-width: 250px;
   height: auto;
 
@@ -23,10 +24,11 @@
 
   &__body {
     margin-bottom: 0;
-
   }
 
-  // &__header {}
+  &__header {
+    margin-bottom: 8px;
+  }
 
   &__name {
     font-size: var(--font-size--lg);
@@ -34,7 +36,11 @@
   }
 
   &__description {
+    display: flex;
+    align-items: center;
+
     font-size: var(--font-size--md);
+    min-height: 52px;
   }
 
   &__price {
