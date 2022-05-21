@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { chromium } from 'playwright';
 import { render, screen } from '@testing-library/react';
 
@@ -32,17 +33,19 @@ window.setImmediate = window.setTimeout as any;
 
 jest.setTimeout( 30000 );
 
-beforeEach( () => {
-  container = render( <SliderCard {...props} /> ).container;
-  intersectionObserverMock.mockClear();
-  scrollToMock.mockClear();
+beforeEach( async () => {
+  await act( async () => {
+    container = render( <SliderCard {...props} /> ).container;
+    intersectionObserverMock.mockClear();
+    scrollToMock.mockClear();
+  } );
 } );
 
 describe( '<SliderCard />', () => {
-  test( 'Render component', () => {
-    expect( screen.getAllByText( productProps.name ) ).toHaveLength( props.items.length );
-    expect( screen.getAllByText( productProps.price ?? '' ) ).toHaveLength( props.items.length );
-    expect( screen.getAllByText( 'Agregar al Carrito' ) ).toHaveLength( props.items.length );
+  test( 'Render component', async () => {
+    expect( await screen.findAllByText( productProps.name ) ).toHaveLength( props.items.length );
+    expect( await screen.findAllByText( productProps.price ?? '' ) ).toHaveLength( props.items.length );
+    expect( await screen.findAllByText( 'Agregar al Carrito' ) ).toHaveLength( props.items.length );
     expect( container.querySelector( 'button[aria-label="previous item"]' ) ).toBeVisible();
     expect( container.querySelector( 'button[aria-label="next item"]' ) ).toBeVisible();
   } );
@@ -68,7 +71,7 @@ describe( '<SliderCard />', () => {
       const browser = await chromium.launch();
       const page = await browser.newPage();
 
-      await page.goto( 'http://localhost:61001/?story=slider-card--slider-card' );
+      await page.goto( 'http://localhost:61000/?story=slider-card--slider-card' );
 
       expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isEnabled() ).toBeTruthy();
 
@@ -110,7 +113,7 @@ describe( '<SliderCard />', () => {
     const browser = await chromium.launch();
     const page = await browser.newPage();
 
-    await page.goto( 'http://localhost:61001/?story=slider-card--slider-card' );
+    await page.goto( 'http://localhost:61000/?story=slider-card--slider-card' );
 
     expect( await page.locator( 'button[aria-label="previous item"] >> nth=1' ).isDisabled() ).toBeTruthy();
     expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isEnabled() ).toBeTruthy();
@@ -128,8 +131,15 @@ describe( '<SliderCard />', () => {
     expect( await page.locator( 'button[aria-label="next item"] >> nth=1' ).isDisabled() ).toBeTruthy();
   } );
 
-  test( 'Disable buttons when the items to be less or equal then ITEMS_IN_SLIDE', () => {
-    const renderResult = render( <SliderCard items={[ productProps ]} /> );
+  test( 'Disable buttons when the items to be less or equal then ITEMS_IN_SLIDE', async () => {
+    let renderResult: any;
+
+    await act( async () => {
+      renderResult = render( <SliderCard items={[ productProps ]} /> );
+    } );
+
+    if ( renderResult === undefined ) throw new Error( 'renderResult is undefined' );
+
     const prevBtn = renderResult.container.querySelector( 'button[aria-label="previous item"]' );
     const nextBtn = renderResult.container.querySelector( 'button[aria-label="next item"]' );
 
