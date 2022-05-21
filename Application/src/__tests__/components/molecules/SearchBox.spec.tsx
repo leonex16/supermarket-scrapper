@@ -1,38 +1,38 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { SearchBox, SearchBoxProps } from '@Application/src/components/molecules/SearchBox';
 
 const props: SearchBoxProps = {
-  handleSubmit: jest.fn(e => e.preventDefault()),
-  placeholder: 'Search Box Placeholder'
-}
+  handleSubmit: jest.fn( e => e.preventDefault() ),
+  placeholder: 'Search Box Placeholder',
+};
 
-beforeEach(() => {
-  (props.handleSubmit as jest.Mock<any, any>).mockClear()
-})
+beforeEach( () => {
+  ( props.handleSubmit as jest.Mock<any, any> ).mockClear();
+} );
 
-describe('<SearchBox />', () => {
-  test('Render component', () => {
-    render(<SearchBox {...props} />);
-    screen.getByPlaceholderText(props.placeholder);
-  })
+describe( '<SearchBox />', () => {
+  test( 'Render component', () => {
+    render( <SearchBox {...props} /> );
+    screen.getByPlaceholderText( props.placeholder );
+  } );
 
-  test('Check if fire onSubmit event pressing enter', () => {
-    const { container } = render(<SearchBox {...props} />);;
-    const form = container.querySelector('form')!;
-    
-    fireEvent.submit(form)
+  test( 'Check if fire onSubmit event pressing enter', () => {
+    const { container } = render( <SearchBox {...props} /> );
+    const form = container.querySelector( 'form' )!;
 
-    expect(props.handleSubmit).toBeCalledTimes(1)
-  })
+    fireEvent.submit( form );
 
-  test('Check if fire onSubmit event pressing button', () => {
-    const { container } = render(<SearchBox {...props} />);;
-    const btn = container.querySelector('button')!;
+    expect( props.handleSubmit ).toBeCalledTimes( 1 );
+  } );
 
-    fireEvent.click(btn)
+  test( 'Check if fire onSubmit event pressing button', () => {
+    const { container } = render( <SearchBox {...props} /> );
+    const btn = container.querySelector( 'button' )!;
 
-    expect(props.handleSubmit).toBeCalledTimes(1)
-  })
-})
+    fireEvent.click( btn );
+
+    expect( props.handleSubmit ).toBeCalledTimes( 1 );
+  } );
+} );

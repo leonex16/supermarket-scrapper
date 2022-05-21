@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { SearchBox as Component, SearchBoxProps } from '@Application/src/components/molecules/SearchBox';
 
 export function SearchBox() {

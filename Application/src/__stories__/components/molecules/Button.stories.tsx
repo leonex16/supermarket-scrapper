@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import { Button, ButtonColor } from '@Application/src/components/molecules/Button';
 
@@ -11,7 +12,7 @@ export function Buttons() {
         <div>
           <Button
             color={ButtonColor.Primary}
-            onClick={() => { }}
+            onClick={() => window.alert( 'Clicked on me!' )}
             text='Button Text'
           ></Button>
         </div>

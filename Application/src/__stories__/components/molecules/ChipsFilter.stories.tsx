@@ -1,21 +1,22 @@
 import React, { useRef } from 'react';
+
 import { ChipsFilter as Component } from '@Application/src/components/molecules/ChipsFilter';
 
 export function ChipsFilter() {
-  const supermarketRef = useRef([
+  const supermarketRef = useRef( [
     {
       name: 'Supermarket 1',
-      active: false
+      active: false,
     },
     {
       name: 'Supermarket 2',
-      active: false
+      active: false,
     },
     {
       name: 'Supermarket 3',
-      active: false
+      active: false,
     },
-  ]);
+  ] );
 
   return (
     <>

@@ -7,7 +7,7 @@ export function SliderCard() {
   const itemNumberToSlides = [ 3, 6, 12, 18 ];
   const productProps: ProductCardProps = {
     name: 'Product Name',
-    description: 'Product Description',
+    description: 'Product description very long for testing purposes',
     unit: 'Kg',
     price: '$100',
     image: 'https://picsum.photos/200/300',

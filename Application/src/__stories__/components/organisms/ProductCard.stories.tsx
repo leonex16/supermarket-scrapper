@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { ProductCard as Component, ProductCardProps } from '@Application/src/components/organisms/ProductCard';
 
 export function ProductCard() {
   const props: ProductCardProps = {
     name: 'Product Name',
-    description: 'Product Description',
+    description: 'Product description very long for testing purposes',
     unit: 'Kg',
     price: '$100',
     image: 'https://picsum.photos/200/300',

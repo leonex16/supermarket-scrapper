@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Headline,
   HeadlineSupermarket,
@@ -38,12 +39,12 @@ export function Headlines() {
       type: HeadlineType.H6,
     },
   ];
-  return headlines.map((headline) => (
+  return headlines.map( headline => (
     <>
       <section>
         <Headline {...headline} />
       </section>
       <hr />
     </>
-  ));
+  ) );
 }
