@@ -16,7 +16,7 @@
   text-align: center;
 
   padding: 4px 16px;
-  width: 150px;
+  width: max-content;
 
   cursor: pointer;
   transition: all 200ms ease;
@@ -31,7 +31,7 @@
   }
 
   &--selected {
-    width: 155px;
+    padding-left: 22px;
 
     &::before {
       content: "\2713";

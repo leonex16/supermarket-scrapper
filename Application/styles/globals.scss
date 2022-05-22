@@ -49,8 +49,8 @@ $font-size-base: 16pt; */
 
 $font-family--primary: 'Poppins', sans-serif;
   
-$font-size--xs: 11pt; /* $font-size--base - 2 */
-$font-size--sm: 12pt; /* $font-size--base - 1 */
+$font-size--xs: 10pt; /* $font-size--base - 3 */
+$font-size--sm: 11pt; /* $font-size--base - 2 */
 $font-size--md: 13pt; /* $font-size--base */
 $font-size--lg: 15pt; /* $font-size--base + 2 */
 $font-size--xl: 18pt; /* $font-size--base + 3 */
@@ -180,6 +180,10 @@ $bp--2xl: 1536px;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family--primary);
+}
+
+body {
+  overflow-x: hidden;
 }
 
 h1 {

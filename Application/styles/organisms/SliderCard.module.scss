@@ -1,7 +1,6 @@
 .scr-slider {
   position: relative;
-
-  width: calc( 100% - 64px );
+  max-width: calc( 100vw );
   margin: auto;
 
   &__btn {
