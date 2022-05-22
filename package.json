@@ -21,7 +21,8 @@
     "server:test": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && LAYERS_TEST_ENV=SERVER jest Application/pages/api/src/__tests__ --detectOpenHandles",
     "app:test": "LAYERS_TEST_ENV=APPLICATION jest Application/src/__tests__ --detectOpenHandles",
     "infra:test": "LAYERS_TEST_ENV=INFRASTRUCTURE jest /Infrastructure",
-    "domain:test": "LAYERS_TEST_ENV=DOMAIN jest /Domain"
+    "domain:test": "LAYERS_TEST_ENV=DOMAIN jest /Domain",
+    "lint": "eslint --color --cache --cache-file .eslintcache --fix 'Application/**/!(node_modules)/*.{js,ts,tsx}' 'Domain/**/!(node_modules)/*.{js,ts,tsx}' 'Infrastructure/**/!(node_modules)/*.{js,ts,tsx}'"
   },
   "author": "Leonel Espinoza Sotelo",
   "license": "MIT",
