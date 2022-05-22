@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "CommonJS",
     "lib": ["esnext"],
-    "outDir": "../.build",
+    "outDir": "../build",
     "baseUrl": ".",
     "paths": {
       "@Domain/*": [ "../Domain/*" ]
