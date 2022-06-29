@@ -75,7 +75,7 @@ TS_NODE_PROJECT=./tsconfig.json nodemon --exec ts-node --pretty ./apps/index.ts
 Library for create path aliases voiding relative path.
 For it to work properly, you must create the aliases in the main package.json, and, for each environment, specific the correspondly path.
 
-Ex:q
+Ex:
 
 I want create two route aliases, for Domain layer and Infrastucture layer.
 
@@ -101,6 +101,10 @@ I want create two route aliases, for Domain layer and Infrastucture layer.
   }
   ```
   
-Prerequisites npm i -D jest typescript yarn add --dev jest typescript
-Installing npm i -D ts-jest @types/jest yarn add --dev ts-jest @types/jest
-Creating config npx ts-jest config:init
+### Ladle
+
+Ladle is like storybook, you can create a library of proyect components
+
+```bash
+npx ladle serve --open none
+```

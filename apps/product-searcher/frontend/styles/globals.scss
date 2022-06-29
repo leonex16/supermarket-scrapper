@@ -1,0 +1,229 @@
+/* Set Fonts */
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../public/fonts/poppins-bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../public/fonts/poppins-bold-italic.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../public/fonts/poppins-italic.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../public/fonts/poppins-regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../public/fonts/poppins-light.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../public/fonts/poppins-light-italic.ttf');
+}
+
+/* Variables */
+
+/* $ratio: 1.15pt;
+$font-size-base: 16pt; */
+
+$font-family--primary: 'Poppins', sans-serif;
+  
+$font-size--xs: 10pt; /* $font-size--base - 3 */
+$font-size--sm: 11pt; /* $font-size--base - 2 */
+$font-size--md: 13pt; /* $font-size--base */
+$font-size--lg: 15pt; /* $font-size--base + 2 */
+$font-size--xl: 18pt; /* $font-size--base + 3 */
+
+$headline--6: 14.95pt; /* $font-size--base * $ratio ** 1 */
+$headline--5: 17.19pt; /* $font-size--base * $ratio ** 2 */
+$headline--4: 19.77pt; /* $font-size--base * $ratio ** 3 */
+$headline--3: 22.73pt; /* $font-size--base * $ratio ** 4 */
+$headline--2: 26.14pt; /* $font-size--base * $ratio ** 5 */
+$headline--1: 30.06pt; /* $font-size--base * $ratio ** 6 */
+
+$white: #FCFCFC;
+$black: #262626;
+$gray--light: #D1D8E0;
+$white--pure: #FFFFFF;
+$black--pure: #000000;
+$primary: hsl(159, 64%, 32%);
+$success: #20BF6B;
+$success--light: #4ff79e;
+$warning: #FED330;
+$warning--light: #ffe894;
+$danger: #EB3B5A;
+$danger--light: #ff8fa3;
+$info: #2D98DA;
+$info--light: #77c7f8;
+$highlight: #8854D0;
+$highlight--light: #bd97f2;
+
+$jumbo: #1fa02e;
+$lider: #0071dc;
+$santa-isabel: #d91e18;
+$tottus: #4da80a;
+
+$border-radius--sm: 4px;
+$border-radius--md: 8px;
+$border-radius--lg: 16px;
+
+$margin--xs: 4px;
+$margin--sm: 8px;
+$margin--md: 16px;
+$margin--lg: 32px;
+$margin--xl: 64px;
+
+$padding--xs: 4px;
+$padding--sm: 8px;
+$padding--md: 16px;
+$padding--lg: 32px;
+$padding--xl: 64px;
+
+// https://polypane.app/blog/the-breakpoints-we-tested-in-2021-and-the-ones-to-test-in-2022/
+
+$bp--xs: 320px;
+$bp--sm: 640px;
+$bp--md: 768px;
+$bp--lg: 1024px;
+$bp--xl: 1280px;
+$bp--2xl: 1536px;
+
+/* Base */
+
+/* $ratio: 1.333 */
+/* $font-size-base: 16pt */
+:root {
+  --font-family--primary: 'Poppins', sans-serif;
+
+  --font-size--xs: #{$font-size--xs};
+  --font-size--sm: #{$font-size--sm};
+  --font-size--md: #{$font-size--md};
+  --font-size--lg: #{$font-size--lg};
+  --font-size--xl: #{$font-size--xl};
+
+  --headline--6: #{$headline--6};
+  --headline--5: #{$headline--5};
+  --headline--4: #{$headline--4};
+  --headline--3: #{$headline--3};
+  --headline--2: #{$headline--2};
+  --headline--1: #{$headline--1};
+
+  --white: #{$white};
+  --black: #{$black};
+  --gray--light: #{$gray--light};
+  --white--pure: #{$white--pure};
+  --black--pure: #{$black--pure};
+  --primary: #{$primary};
+  --success: #{$success};
+  --success--light: #{$success--light};
+  --warning: #{$warning};
+  --warning--light: #{$warning--light};
+  --danger: #{$danger};
+  --danger--light: #{$danger--light};
+  --info: #{$info};
+  --info--light: #{$info--light};
+  --highlight: #{$highlight};
+  --highlight--light: #{$highlight--light};
+
+  --jumbo: #{$jumbo};
+  --lider: #{$lider};
+  --santa-isabel: #{$santa-isabel};
+  --tottus: #{$tottus};
+
+  --border-radius--sm: #{$border-radius--sm};
+  --border-radius--md: #{$border-radius--md};
+  --border-radius--lg: #{$border-radius--lg};
+
+  --margin--xs: #{$margin--xs};
+  --margin--sm: #{$margin--sm};
+  --margin--md: #{$margin--md};
+  --margin--lg: #{$margin--lg};
+  --margin--xl: #{$margin--xl};
+
+  --padding--xs: #{$padding--xs};
+  --padding--sm: #{$padding--sm};
+  --padding--md: #{$padding--md};
+  --padding--lg: #{$padding--lg};
+  --padding--xl: #{$padding--xl};
+
+  --bp--xs: #{$bp--xs};
+  --bp--sm: #{$bp--sm};
+  --bp--md: #{$bp--md};
+  --bp--lg: #{$bp--lg};
+  --bp--xl: #{$bp--xl};
+  --bp--2xl: #{$bp--2xl};
+}
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family--primary);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: var(--headline--1);
+  color: var(--black);
+}
+
+h2 {
+  font-size: var(--headline--2);
+  color: var(--black);
+}
+
+h3 {
+  font-size: var(--headline--3);
+  color: var(--black);
+}
+
+h4 {
+  font-size: var(--headline--4);
+  color: var(--black);
+}
+
+h5 {
+  font-size: var(--headline--5);
+  color: var(--black);
+}
+
+h6 {
+  font-size: var(--headline--6);
+  color: var(--black);
+}
+
+header,
+article,
+section,
+footer {
+  margin: var(--margin--md) auto;
+}
+
+p,
+span {
+  color: var(--black);
+}

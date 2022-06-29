@@ -41,3 +41,6 @@ ssl/
 .env.test.local
 .env.production.local
 *.pem
+playwright-report
+.cache
+.github/
