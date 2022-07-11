@@ -11,8 +11,8 @@ import styles from '../../../styles/organisms/product-card.module.scss';
 export interface ProductCardProps {
   name: string,
   description: string | null,
+  price: string,
   unit: string,
-  price: string | null,
   image: string,
   source: string,
   loading?: 'eager' | 'lazy'

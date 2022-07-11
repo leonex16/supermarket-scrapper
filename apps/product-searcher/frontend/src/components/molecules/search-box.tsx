@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
 import iconSearch from '../../../public/icons/search.svg';
@@ -14,7 +13,7 @@ export function SearchBox ( { handleSubmit, placeholder }: SearchBoxProps ) {
     <form className={`${ styles[ 'scr-search-box' ] }`} onSubmit={handleSubmit} role={'searchbox'} >
       <input className={`${ styles[ 'scr-search-box__input' ] }`} placeholder={placeholder} name="search-input" type="text" />
       <button className={`${ styles[ 'scr-search-box__btn' ] }`}>
-        <img src={iconSearch} alt="Search Icon" width={24} height={24} />
+        <img src={iconSearch.src} alt="Search Icon" width={24} height={24} />
       </button>
     </form>
   );
