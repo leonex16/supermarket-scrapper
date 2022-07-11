@@ -2,7 +2,7 @@
   "name": "product-searcher-frontend",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev",
     "build": "next build",
     "start": "next start",
     "test": "playwright test -c ./playwright-ct.config.ts"
