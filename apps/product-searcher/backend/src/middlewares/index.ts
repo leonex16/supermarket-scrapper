@@ -25,6 +25,7 @@ export function handleResponse () {
   return async function ( ctx: Context, next: Next ) {
     ctx.set( 'Content-Type', 'application/json' );
     let httpResponse = new InternalServerHttpResponse();
+
     try {
       httpResponse = await next();
     } catch ( e: unknown ) {
