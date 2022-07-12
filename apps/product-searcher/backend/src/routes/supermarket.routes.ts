@@ -2,33 +2,39 @@
 import { Context } from 'koa';
 import Router from '@koa/router';
 
-import { ArgumentRequiredException } from '../errors/index';
-import { LoggerConsole } from '../../../../../src/product-searcher/shared/infrastructure/logger-console-logger';
 import { OkHttpResponse } from '../models';
-import { ProductExtractor } from '../../../../../src/product-searcher/modules/supermarket/application/extract/product-extractor';
-import { SupermarketScrapperPlaywright } from '../../../../../src/product-searcher/modules/supermarket/infrastructure/supermarket-scrapper-playwright';
-import { Supermarkets } from '../../../../../src/product-searcher/modules/supermarket/shared/types/index';
+import { ArgumentRequiredException, ProductNameValueNotValidException, SupermarketValueNotValidException } from '../errors/index';
+
+import { LoggerConsole } from '../../../../../src/product-searcher/shared/infrastructure/logger-console-logger';
+
+import { PlaywrightSupermarketScrapper } from '../../../../../src/product-searcher/modules/supermarket-scrapper/infrastructure/playwright-supermarket-scrapper';
+import { ProductExtractor } from '../../../../../src/product-searcher/modules/supermarket-scrapper/application/product-extractor';
+
+import { JumboSupermarketData } from '../../../../../src/product-searcher/modules/supermarket-data/infrastructure/jumbo-supermarket-data';
+import { LiderSupermarketData } from '../../../../../src/product-searcher/modules/supermarket-data/infrastructure/lider-supermarket-data';
+import { SupermarketFinder } from '../../../../../src/product-searcher/modules/supermarket-data/application/supermarket-finder';
 
 const routerSupermarket = new Router( { prefix: '/supermarket' } );
 
-// routerSupermarket.get( '/banner', async ( ctx: Context ) => {
-//   const supermarket = ctx.query.supermarket as string;
+routerSupermarket.get( '/banners', async ( ctx: Context ) => {
+  return null;
+} );
 
-//   if ( supermarket === undefined ) throw new ArgumentRequiredException( 'supermarket' );
+routerSupermarket.get( '/products', async ( ctx: Context ) => {
+  const productName = ctx.query.product;
+  const rawSupermarket = ctx.query.supermarket;
 
-//   return null;
-// } );
+  if ( productName === undefined ) throw new ArgumentRequiredException( 'product' );
+  if ( rawSupermarket === undefined ) throw new ArgumentRequiredException( 'supermarket' );
 
-routerSupermarket.get( '/product', async ( ctx: Context ) => {
-  const productName = ctx.query.qproduct as string;
-  const supermarket = ctx.query.qsupermarket as Supermarkets;
-  const productExtractor = new ProductExtractor( new SupermarketScrapperPlaywright() );
-  const logger = new LoggerConsole();
+  if ( typeof productName !== 'string' ) throw new ProductNameValueNotValidException();
+  if ( typeof rawSupermarket !== 'string' ) throw new SupermarketValueNotValidException();
 
-  if ( productName === undefined ) throw new ArgumentRequiredException( 'qproduct' );
-  if ( supermarket === undefined ) throw new ArgumentRequiredException( 'qsupermarket' );
+  const supermarkets = [ new JumboSupermarketData(), new LiderSupermarketData() ];
+  const supermarketFinder = new SupermarketFinder( supermarkets );
+  const productExtractor = new ProductExtractor( new PlaywrightSupermarketScrapper() );
 
-  const products = await productExtractor.run( productName, supermarket, logger );
+  const products = await productExtractor.run( productName, supermarketFinder.run( rawSupermarket ), new LoggerConsole() );
 
   return new OkHttpResponse( products );
 } );

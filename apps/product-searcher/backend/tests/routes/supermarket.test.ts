@@ -4,12 +4,13 @@ import { expect, test } from '@playwright/test';
 test.describe( 'Supermarket endpoint', () => {
   test.describe( 'GET - /supermarket/product', () => {
     test( 'should returns a 200 status code and a JSON object with data', async ( { request } ) => {
-      const response = await request.get( '/api/v1/supermarket/product', {
+      const response = await request.get( '/api/v1/supermarket/products', {
         params: {
-          qproduct: 'bebida',
-          qsupermarket: 'lider'
+          product: 'bebida',
+          supermarket: 'lider'
         }
       } );
+
       const body = await response.json();
 
       expect( response.headers()[ 'content-type' ] ).toMatch( /json/ );
@@ -18,10 +19,10 @@ test.describe( 'Supermarket endpoint', () => {
       expect( body.data.length ).toBeGreaterThan( 3 );
     } );
 
-    test( 'should return 400 status when qproduct to be undefined', async ( { request } ) => {
-      const response = await request.get( '/api/v1/supermarket/product', {
+    test( 'should return 400 status when qs product to be undefined', async ( { request } ) => {
+      const response = await request.get( '/api/v1/supermarket/products', {
         params: {
-          qsupermarket: 'lider'
+          supermarket: 'lider'
         }
       } );
       const body = await response.json();
@@ -29,13 +30,13 @@ test.describe( 'Supermarket endpoint', () => {
       expect( response.headers()[ 'content-type' ] ).toMatch( /json/ );
       expect( response.status() ).toBe( 400 );
       expect( body.isOk ).toBe( false );
-      expect( body.message ).toBe( 'Data input is not correct >> qproduct argument required' );
+      expect( body.message ).toBe( 'Data input is not correct >> product argument required' );
     } );
 
-    test( 'should return 400 status when qsupermarket to be undefined', async ( { request } ) => {
-      const response = await request.get( '/api/v1/supermarket/product', {
+    test( 'should return 400 status when qs supermarket to be undefined', async ( { request } ) => {
+      const response = await request.get( '/api/v1/supermarket/products', {
         params: {
-          qproduct: 'bebida'
+          product: 'bebida'
         }
       } );
       const body = await response.json();
@@ -43,7 +44,7 @@ test.describe( 'Supermarket endpoint', () => {
       expect( response.headers()[ 'content-type' ] ).toMatch( /json/ );
       expect( response.status() ).toBe( 400 );
       expect( body.isOk ).toBe( false );
-      expect( body.message ).toBe( 'Data input is not correct >> qsupermarket argument required' );
+      expect( body.message ).toBe( 'Data input is not correct >> supermarket argument required' );
     } );
   } );
 
