@@ -18,7 +18,7 @@ export class Name {
 
     if ( nameTrimmed === '' ) throw new EmptyValueException( 'name' );
     if ( nameTrimmed.length < 2 ) throw new StrTooShortException( 'name' );
-    if ( nameTrimmed.length > 50 ) throw new StrTooLargeException( 'name' );
+    if ( nameTrimmed.length > 80 ) throw new StrTooLargeException( 'name' );
 
     return new Name( nameTrimmed );
   }
