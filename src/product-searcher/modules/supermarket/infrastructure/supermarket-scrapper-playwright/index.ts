@@ -14,11 +14,8 @@ export class SupermarketScrapperPlaywright implements SupermarketScrapper {
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    logger.log( `Opening ${ SUPERMARKET_SELECTORS.URL }` );
-    await page.goto( SUPERMARKET_SELECTORS.URL, { timeout: 60000 } );
-
-    logger.log( `${ SUPERMARKET_SELECTORS.NAME } - Searching for ${ toSearch }` );
-    await this._toSearch( page, SUPERMARKET_SELECTORS, toSearch );
+    logger.log( `Opening ${ SUPERMARKET_SELECTORS.URL } and searching ${ toSearch }...` );
+    await page.goto( `${ SUPERMARKET_SELECTORS.URL_TO_SEARCH }=${ toSearch }`, { timeout: 60000 } );
 
     logger.log( `${ SUPERMARKET_SELECTORS.NAME } - Scrolling to bottom the end page...` );
     await this._scrollBottom( page );

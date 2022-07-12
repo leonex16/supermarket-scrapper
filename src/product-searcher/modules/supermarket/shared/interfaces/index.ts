@@ -26,6 +26,7 @@ export interface ProductSelectors {
 export interface SupermarketSelectors {
   NAME: string;
   URL: string;
+  URL_TO_SEARCH: string;
   SEARCH_BOX: string;
   NOT_FOUND: string;
   ORDER_BY_PRICE?: string;

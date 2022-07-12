@@ -8,6 +8,7 @@ export class Supermarket {
     LIDER: {
       NAME: 'Lider',
       URL: 'https://www.lider.cl/supermercado',
+      URL_TO_SEARCH: 'https://www.lider.cl/supermercado/search?Ntt',
       SEARCH_BOX: 'input#searchtextinput',
       NOT_FOUND: '.no-search-results',
       ORDER_BY_PRICE: 'li#productsorderprice',
@@ -29,6 +30,7 @@ export class Supermarket {
     JUMBO: {
       NAME: 'Jumbo',
       URL: 'https://www.jumbo.cl/',
+      URL_TO_SEARCH: 'https://www.jumbo.cl/busqueda?ft',
       SEARCH_BOX: 'input.new-header-search-input',
       NOT_FOUND: '.error-404-empty-message',
       PRODUCTS: 'ul.shelf-list > li.shelf-item',
@@ -37,7 +39,7 @@ export class Supermarket {
         NAME: 'h2.shelf-product-title-text',
         DESCRIPTION: 'h2.shelf-product-brand',
         DETAIL: {
-          NORMAL_PRICE: '.price-product-item.regular:not(.tcenco, .promotion) span.price-best, span.product-sigle-price-wrapper, div.price-product-old-price span.price-product-value',
+          NORMAL_PRICE: ':is(.price-product-item.regular:not(.tcenco) span.price-best), .product-sigle-price-wrapper',
           BEST_PRICE: '.price-product-item.regular.promotion:not(.tcenco)',
           UNIT: 'span.shelf-single-unit'
         },
