@@ -3,9 +3,8 @@ import type { ElementHandle, Locator, Page } from 'playwright';
 
 import { Logger } from '../../../../shared/domain/logger';
 import { NotFoundProductException } from '../errors';
-import { SupermarketData } from '../../../supermarket-data/domain/supermarket-data';
 import { SupermarketScrapper } from '../../domain/supermarket-scrapper';
-import { ProductSelectors, SupermarketSelectors } from '../../shared/interfaces';
+import { ProductSelectors, SupermarketData } from '../../../supermarket-data/domain/supermarket-data';
 
 export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
   async getDataProducts ( toSearch: string, supermarket: SupermarketData, logger: Logger ) {
@@ -20,7 +19,7 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
     await this._ensureProductsFound( page, supermarket, toSearch );
 
     logger.log( `${ supermarket.name } - Scrolling to bottom the end page...` );
-    await this._scrollBottom( page );
+    await this._scrollBottomAndRenderImages( page, supermarket.productSelector );
 
     logger.log( `${ supermarket.name } - Getting products...` );
     const productsLocator = page.locator( supermarket.productsSelector );
@@ -47,15 +46,20 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
     return Promise.all( promiseUrls );
   };
 
-  private _scrollBottom = async ( page: Page ) => {
-    await page.evaluate( async () => {
-      for ( let i = 0; i < document.body.scrollHeight; i += 0.01 ) {
+  private _scrollBottomAndRenderImages = async ( page: Page, productSelectors: ProductSelectors ) => {
+    const IMAGES_TO_RENDER = 40;
+
+    page.evaluate( async () => {
+      for ( let i = 0; i < document.body.scrollHeight; i += 0.05 ) {
         window.scrollTo( 0, i );
       }
 
       return Promise.resolve();
     } );
-    await page.waitForLoadState( 'networkidle' );
+
+    await page.waitForFunction( predicate => {
+      return document.querySelectorAll( predicate.imgSelector ).length >= predicate.imgToRender;
+    }, { imgSelector: productSelectors.image, imgToRender: IMAGES_TO_RENDER } );
   };
 
   private async _getBannerData ( bannerLocator: Locator ): Promise<any> {
@@ -69,8 +73,8 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
     } ) );
   }
 
-  private async _getProductsData ( productsLocator: Locator, PRODUCT_SELECTORS: ProductSelectors ): Promise<any[]> {
-    const { bestPrice, description, image, name, normalPrice, origin, unit, url } = PRODUCT_SELECTORS;
+  private async _getProductsData ( productsLocator: Locator, productSelectors: ProductSelectors ): Promise<any[]> {
+    const { bestPrice, description, image, name, normalPrice, origin, unit, url } = productSelectors;
 
     const promises = [
       productsLocator.locator( name ).allInnerTexts(),
@@ -96,14 +100,6 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
     } ) );
 
     return products;
-  }
-
-  private async _toSearch ( page: Page, SUPERMARKET: SupermarketSelectors, productName: string ): Promise<void> {
-    const $searchBox = page.locator( SUPERMARKET.SEARCH_BOX );
-
-    await $searchBox.waitFor();
-    await $searchBox.fill( productName );
-    await $searchBox.press( 'Enter' );
   }
 
   private async _ensureProductsFound ( page: Page, supermarket: SupermarketData, productName: string ) {
