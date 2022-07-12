@@ -8,7 +8,7 @@ import { SupermarketFinder } from '../../../../../modules/supermarket-data/appli
 
 import { NotFoundProductException } from '../../../../../modules/supermarket-scrapper/infrastructure/errors';
 import { PlaywrightSupermarketScrapper } from '../../../../../modules/supermarket-scrapper/infrastructure/playwright-supermarket-scrapper';
-import { ProductExtractor } from '../../../../../modules/supermarket-scrapper/application/product-extractor';
+import { ProductsExtractor } from '../../../../../modules/supermarket-scrapper/application/products-extractor';
 
 const supermarketFinder = new SupermarketFinder( [
   new JumboSupermarketData(),
@@ -20,7 +20,7 @@ test.describe( 'SupermarketScrapperPlaywright', () => {
   const supermarketScrapperPlaywright = new PlaywrightSupermarketScrapper();
 
   test.describe( 'ProductExtractor', () => {
-    const productExtractor = new ProductExtractor( supermarketScrapperPlaywright );
+    const productExtractor = new ProductsExtractor( supermarketScrapperPlaywright );
 
     test.describe( 'HappyPath', () => {
       test.only( 'should return an array of jumbo\'s products', async () => {

@@ -8,14 +8,14 @@ import { ProductSelectors, SupermarketData } from '../../../supermarket-data/dom
 
 export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
   async getDataProducts ( toSearch: string, supermarket: SupermarketData, logger: Logger ) {
-    const browser = await chromium.launch( { headless: true, slowMo: 100 } );
+    const browser = await chromium.launch( { headless: true } );
     const context = await browser.newContext();
     const page = await context.newPage();
 
     logger.log( `Opening ${ supermarket.urlToGo } and searching ${ toSearch }...` );
     await page.goto( `${ supermarket.urlToSearch }=${ toSearch }`, { timeout: 60000 } );
 
-    logger.log( `Scanning results for ${ toSearch }...` );
+    logger.log( `${ supermarket.name } - Scanning results for ${ toSearch }...` );
     await this._ensureProductsFound( page, supermarket, toSearch );
 
     logger.log( `${ supermarket.name } - Scrolling to bottom the end page...` );
@@ -35,8 +35,28 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
     return rawProducts;
   }
 
-  async getDataBanner ( _supermarket: SupermarketData ): Promise<any[]> {
-    return [];
+  async getDataBanners ( supermarkets: SupermarketData[], logger: Logger ): Promise<any[]> {
+    const browser = await chromium.launch( { headless: false } );
+    const context = await browser.newContext();
+
+    const imgss = supermarkets.map( async supermarket => {
+      const page = await context.newPage();
+
+      logger.log( `Opening ${ supermarket.urlToGo }...` );
+      await page.goto( `${ supermarket.urlToGo }`, { timeout: 60000 } );
+
+      logger.log( `${ supermarket.name } - Waiting for the banner image to load...` );
+      await page.waitForLoadState( 'load' );
+
+      return page.locator( supermarket.bannerSelector ).evaluate( $banner => {
+        const $bannerImgs = $banner.getElementsByTagName( 'img' );
+        const imgs = Array.from( $bannerImgs ).map( $bannerImg => $bannerImg.src );
+
+        return imgs;
+      } );
+    } );
+    const x = Promise.all( imgss );
+    return x;
   }
 
   private _getUrlsFromLocatorElement = async ( locator: Locator, attribute: string ) => {

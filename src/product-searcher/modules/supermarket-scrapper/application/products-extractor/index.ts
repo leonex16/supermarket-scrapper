@@ -3,7 +3,7 @@ import { Product } from '../../../product/domain/product';
 import { SupermarketData } from '../../../supermarket-data/domain/supermarket-data';
 import { SupermarketScrapper } from '../../domain/supermarket-scrapper';
 
-export class ProductExtractor {
+export class ProductsExtractor {
   constructor (
     private readonly _supermarketScrapper: SupermarketScrapper
   ) {}
