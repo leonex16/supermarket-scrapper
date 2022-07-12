@@ -68,4 +68,15 @@ export class Product {
       productInfo.source
     );
   }
+
+  toJsonResponse (): any {
+    return {
+      name: this.name,
+      description: this.description,
+      image: this.image,
+      source: this.source,
+      price: this.detail.bestPrice ?? this.detail.normalPrice,
+      unit: this.detail.unit
+    };
+  }
 }
