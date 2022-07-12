@@ -117,8 +117,8 @@ test.describe( 'Product', () => {
         .toThrowError( new StrTooShortException( 'name' ) );
     } );
 
-    test( 'throws an error when the name has a length greater than 50', () => {
-      const testValue = 'a'.repeat( 50 + 1 );
+    test( 'throws an error when the name has a length greater than 80', () => {
+      const testValue = 'a'.repeat( 80 + 1 );
       productParams.name = testValue;
       expect( () => Product.create( productParams ) )
         .toThrowError( new StrTooLargeException( 'name' ) );
