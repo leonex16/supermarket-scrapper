@@ -18,7 +18,7 @@ export class ProductExtractor {
 
   private _parseRawProductsToProductInstance ( rawProducts: any[] ) {
     return rawProducts.map( rawProduct => {
-      return Product.create( rawProduct );
+      return Product.create( rawProduct ).toJsonResponse();
     } );
   }
 }
