@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": true,
+    "baseUrl": ".",
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "extends": "../../../tsconfig.base.json"
+}

@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "rootDir": ".",
+    "target": "ESNext",
+    "removeComments": true,
     "allowJs": false,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    // "paths": {
-    //   "@Application/*": ["/*"],
-    //   "@Domain/*": ["domain/src/*"],
-    //   "@Infrastructure/*": ["infrastructure/src/*"],
-    // }
-  }
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
 }

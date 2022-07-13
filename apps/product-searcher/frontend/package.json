@@ -1,0 +1,33 @@
+{
+  "name": "product-searcher-frontend",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "playwright test -c ./playwright-ct.config.ts"
+  },
+  "dependencies": {
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "@ladle/react": "0.15.1",
+    "@playwright/experimental-ct-react": "^1.23.0",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.4",
+    "@types/supertest": "2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint": "^8.18.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "sass": "1.51.0",
+    "supertest": "6.2.3"
+  }
+}
