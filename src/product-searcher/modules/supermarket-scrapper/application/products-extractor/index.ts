@@ -9,14 +9,14 @@ export class ProductsExtractor {
   ) {}
 
   async run ( toSearch: string, supermarket: SupermarketData, logger: Logger ) {
-    const rawProducts = await this._supermarketScrapper.getDataProducts( toSearch, supermarket, logger );
+    const products = await this._supermarketScrapper.getDataProducts( toSearch, supermarket, logger );
 
-    return this._parseRawProductsToProductInstance( rawProducts );
+    return this._parseRawProductsToProductInstance( products );
   }
 
-  private _parseRawProductsToProductInstance ( rawProducts: any[] ) { // TODO: IMPROVE
-    return rawProducts.map( rawProduct => {
-      return Product.create( rawProduct ).toJsonResponse();
+  private _parseRawProductsToProductInstance ( products: { [key: string]: any[] } ) { // TODO: IMPROVE
+    return Object.entries( products ).map( ( [ supermarketName, rawProducts ] ) => {
+      return { [ supermarketName ]: rawProducts.map( rawProduct => Product.create( rawProduct ).toJsonResponse() ) };
     } );
   }
 }

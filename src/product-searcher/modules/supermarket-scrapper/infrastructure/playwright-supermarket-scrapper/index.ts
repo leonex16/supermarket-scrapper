@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import type { ElementHandle, Locator, Page } from 'playwright';
+import type { BrowserContext, ElementHandle, Locator, Page } from 'playwright';
 
 import { Logger } from '../../../../shared/domain/logger';
 import { NotFoundProductException } from '../errors';
@@ -10,6 +10,14 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
   async getDataProducts ( toSearch: string, supermarket: SupermarketData, logger: Logger ) {
     const browser = await chromium.launch( { headless: true } );
     const context = await browser.newContext();
+    const rawProducts = await this._initializeScraperToSupermarketProducts( context, logger, supermarket, toSearch );
+
+    browser.close();
+
+    return { [ supermarket.name.toLowerCase() ]: rawProducts };
+  }
+
+  private async _initializeScraperToSupermarketProducts ( context: BrowserContext, logger: Logger, supermarket: SupermarketData, toSearch: string ) {
     const page = await context.newPage();
 
     logger.log( `Opening ${ supermarket.urlToGo } and searching ${ toSearch }...` );
@@ -27,36 +35,43 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
     logger.log( `${ supermarket.name } - Get information of each product` );
     const rawProducts = await this._getProductsData( productsLocator, supermarket.productSelector );
 
-    logger.log( `${ supermarket.name } - Closing browser...` );
-    await browser.close();
-
-    logger.log( `${ supermarket.name } - Returning products...` );
-
     return rawProducts;
   }
 
-  async getDataBanners ( supermarkets: SupermarketData[], logger: Logger ): Promise<any[]> {
+  async getDataBanners ( supermarkets: SupermarketData[], logger: Logger ): Promise<any> {
     const browser = await chromium.launch( { headless: false } );
     const context = await browser.newContext();
+    const entryPromises = supermarkets.map( supermarket => this._initializeScraperToSupermarketBanner( context, logger, supermarket ) );
+    const entries = await Promise.all( entryPromises );
 
-    const imgss = supermarkets.map( async supermarket => {
-      const page = await context.newPage();
+    browser.close();
 
-      logger.log( `Opening ${ supermarket.urlToGo }...` );
-      await page.goto( `${ supermarket.urlToGo }`, { timeout: 60000 } );
+    return Object.fromEntries( entries );
+  }
 
-      logger.log( `${ supermarket.name } - Waiting for the banner image to load...` );
-      await page.waitForLoadState( 'load' );
+  private _extractImagesFromBanner ( $banner: HTMLElement ) {
+    const $bannerImgs = $banner.getElementsByTagName( 'img' );
+    const imageSources = Array.from( $bannerImgs ).map( $bannerImg => $bannerImg.src );
 
-      return page.locator( supermarket.bannerSelector ).evaluate( $banner => {
-        const $bannerImgs = $banner.getElementsByTagName( 'img' );
-        const imgs = Array.from( $bannerImgs ).map( $bannerImg => $bannerImg.src );
+    return imageSources;
+  }
 
-        return imgs;
-      } );
-    } );
-    const x = Promise.all( imgss );
-    return x;
+  private async _initializeScraperToSupermarketBanner ( context: BrowserContext, logger: Logger, supermarket: SupermarketData ) {
+    const page = await context.newPage();
+
+    logger.log( `Opening ${ supermarket.urlToGo }...` );
+    await page.goto( `${ supermarket.urlToGo }`, { timeout: 60000 } );
+
+    logger.log( `${ supermarket.name } - Waiting for the banner image to load...` );
+    await page.waitForLoadState( 'load' );
+
+    logger.log( `${ supermarket.name } - Extracting the banner images...` );
+    const sources = await page.locator( supermarket.bannerSelector ).evaluate( this._extractImagesFromBanner );
+
+    logger.log( `${ supermarket.name } - Closing page...` );
+    await page.close();
+
+    return [ supermarket.name.toLowerCase(), sources ];
   }
 
   private _getUrlsFromLocatorElement = async ( locator: Locator, attribute: string ) => {
@@ -81,17 +96,6 @@ export class PlaywrightSupermarketScrapper implements SupermarketScrapper {
       return document.querySelectorAll( predicate.imgSelector ).length >= predicate.imgToRender;
     }, { imgSelector: productSelectors.image, imgToRender: IMAGES_TO_RENDER } );
   };
-
-  private async _getBannerData ( bannerLocator: Locator ): Promise<any> {
-    const $bannerImgs = this._getUrlsFromLocatorElement( bannerLocator.locator( 'img' ), 'src' );
-    const $bannerAlts = this._getUrlsFromLocatorElement( bannerLocator.locator( 'img' ), 'alt' );
-    const [ images, imageAlts ] = await Promise.all( [ $bannerImgs, $bannerAlts ] );
-
-    return images.map( ( image, index ) => ( {
-      image,
-      alt: imageAlts[ index ] ?? 'Sin descripción'
-    } ) );
-  }
 
   private async _getProductsData ( productsLocator: Locator, productSelectors: ProductSelectors ): Promise<any[]> {
     const { bestPrice, description, image, name, normalPrice, origin, unit, url } = productSelectors;
