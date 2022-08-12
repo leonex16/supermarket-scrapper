@@ -1,48 +1,48 @@
-import type { NextPage } from 'next';
-import { useRef } from 'react';
+import type { GetServerSideProps, NextPage } from 'next';
+import { useRef, useState } from 'react';
 
 import Head from 'next/head';
 
 import { ChipsFilter } from '../../src/components/molecules/chips-filter';
 import { HeadlineSupermarket } from '../../src/components/molecules/headline';
 import { LineBar } from '../../src/components/molecules/line-bar';
-import { SearchBox } from '../../src/components/molecules/SearchBox';
+import { SearchBox } from '../../src/components/molecules/search-box';
 import { SupermarketContent } from './components/supermarket-content';
 
-import styles from '@Application/pages/home/index.module.scss';
+import { useLoading } from '../../src/hooks/use-loading';
 
-// import { ProductService } from '../../../Infrastructure/Services/ProductService';
+import { findProducts } from '../../src/services/supermarket/products/find-products';
+import { formatProducts } from '../../src/services/supermarket/products/format-products';
+
+import styles from './index.module.scss';
 
 const Home: NextPage = () => {
+  const { setLoading } = useLoading();
   const filterSupermarkets = useRef( [
     {
-      name: 'Tottus',
-      active: false
-    },
-    {
       name: 'Lider',
-      active: false
+      active: true
     },
     {
       name: 'Jumbo',
-      active: false
-    },
-    {
-      name: 'Santa Isabel',
-      active: false
+      active: true
     }
   ] );
-  const productProps = {
-    name: 'Product Name',
-    description: 'Product description very long for testing purposes',
-    unit: 'Kg',
-    price: '$100',
-    image: 'https://picsum.photos/200/300',
-    source: 'https://dummyimage.com/400x600/000/fff&text=ProductImage'
-  };
+
+  const [ items, setItems ] = useState<any>( [] );
 
   const handleSubmit = async ( evt: any ) => {
     evt.preventDefault();
+    const toSearch = evt.target[ 'search-input' ].value;
+    const supermarketsToSearch = filterSupermarkets.current.filter( s => s.active );
+    const supermarketNames = supermarketsToSearch.map( s => s.name );
+
+    if ( toSearch.trim() === '' ) return;
+
+    setLoading( true );
+    const data = await findProducts( toSearch, supermarketNames );
+    setItems( formatProducts( data[ 0 ] ) );
+    setLoading( false );
   };
 
   return (
@@ -71,8 +71,12 @@ const Home: NextPage = () => {
           </header>
 
           <article className={`${ styles.content__supermarkets }`}>
-            {/* <SupermarketContent items={new Array( 8 ).fill( productProps )} type={HeadlineSupermarket.Jumbo} /> */}
+            <SupermarketContent items={items} type={HeadlineSupermarket.Lider} />
           </article>
+
+          {/* <article className={`${ styles.content__supermarkets }`}>
+            <SupermarketContent items={[]} type={HeadlineSupermarket.Jumbo} />
+          </article> */}
 
         </article>
 

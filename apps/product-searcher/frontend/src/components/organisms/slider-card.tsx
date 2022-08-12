@@ -1,10 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import React, {
   Suspense, useEffect, useRef, useState
 } from 'react';
 
 import { ProductCardLoader } from '../molecules/product-card-loader';
 import { ProductCardProps } from './product-card';
+
+import { useLoading } from '../../hooks/use-loading';
 
 import styles from '../../../styles/organisms/slider-card.module.scss';
 
@@ -16,9 +17,24 @@ export interface SliderCardProps {
 
 export function SliderCard ( { items }: SliderCardProps ) {
   const MIN_ITEMS_IN_SLIDE = 3;
+  const { isLoading } = useLoading();
   const itemsContainerRef = useRef<HTMLDivElement>( null );
   const [ showPrevBtn, setShowPrevBtn ] = useState( false );
   const [ showNextBtn, setShowNextBtn ] = useState( items.length > MIN_ITEMS_IN_SLIDE );
+
+  const itemsToRender = isLoading
+    ? Array( MIN_ITEMS_IN_SLIDE ).fill( 0 ).map( ( _, i ) => (
+      <section className={`${ styles[ 'scr-slider__item' ] }`} key={+new Date() + i}>
+        <ProductCardLoader />
+      </section>
+    ) )
+    : items.map( ( item, index ) => (
+      <section className={`${ styles[ 'scr-slider__item' ] }`} key={`${ index }-${ item.name }`} >
+        <Suspense fallback={<ProductCardLoader/>}>
+          <ProductCard {...item} />
+        </Suspense>
+      </section>
+    ) );
 
   const handleClick = ( action: 'prev' | 'next' ) => {
     const $slidesContainer = itemsContainerRef.current;
@@ -34,6 +50,7 @@ export function SliderCard ( { items }: SliderCardProps ) {
     $slidesContainer.scrollTo( { left: toScroll, behavior: 'smooth' } );
   };
 
+  // eslint-disable-next-line no-undef
   const callback: IntersectionObserverCallback = entries => {
     const [ firstItem, lastItem ] = entries;
     const hiddePrevBtn = Boolean( firstItem?.isIntersecting );
@@ -95,17 +112,7 @@ export function SliderCard ( { items }: SliderCardProps ) {
         disabled={!showPrevBtn}
       />
       <div ref={itemsContainerRef} className={`${ styles[ 'scr-slider__items' ] }`}>
-        {
-          (
-            items.map( ( item, index ) => (
-              <section className={`${ styles[ 'scr-slider__item' ] }`} key={`${ index }-${ item.name }`} >
-                <Suspense fallback={<ProductCardLoader/>}>
-                  <ProductCard {...item} />
-                </Suspense>
-              </section>
-            ) )
-          )
-        }
+        { itemsToRender }
       </div>
       <button
         className={`${ styles[ 'scr-slider__btn' ] } ${ styles[ 'scr-slider__btn--next' ] }`}

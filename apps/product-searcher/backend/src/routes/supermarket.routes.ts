@@ -7,17 +7,22 @@ import { ArgumentRequiredException, ProductNameValueNotValidException, Supermark
 
 import { LoggerConsole } from '../../../../../src/product-searcher/shared/infrastructure/logger-console-logger';
 
+import { BannersExtractor } from '../../../../../src/product-searcher/modules/supermarket-scrapper/application/banners-extractor';
 import { PlaywrightSupermarketScrapper } from '../../../../../src/product-searcher/modules/supermarket-scrapper/infrastructure/playwright-supermarket-scrapper';
-import { ProductExtractor } from '../../../../../src/product-searcher/modules/supermarket-scrapper/application/product-extractor';
+import { ProductsExtractor } from '../../../../../src/product-searcher/modules/supermarket-scrapper/application/products-extractor';
 
 import { JumboSupermarketData } from '../../../../../src/product-searcher/modules/supermarket-data/infrastructure/jumbo-supermarket-data';
 import { LiderSupermarketData } from '../../../../../src/product-searcher/modules/supermarket-data/infrastructure/lider-supermarket-data';
 import { SupermarketFinder } from '../../../../../src/product-searcher/modules/supermarket-data/application/supermarket-finder';
 
 const routerSupermarket = new Router( { prefix: '/supermarket' } );
+const supermarkets = [ new LiderSupermarketData() ];
+const supermarketScrapper = new PlaywrightSupermarketScrapper();
+const logger = new LoggerConsole();
 
 routerSupermarket.get( '/banners', async ( ctx: Context ) => {
-  return null;
+  const bannersExtractor = new BannersExtractor( supermarketScrapper );
+  return new OkHttpResponse( await bannersExtractor.run( supermarkets, logger ) );
 } );
 
 routerSupermarket.get( '/products', async ( ctx: Context ) => {
@@ -30,11 +35,10 @@ routerSupermarket.get( '/products', async ( ctx: Context ) => {
   if ( typeof productName !== 'string' ) throw new ProductNameValueNotValidException();
   if ( typeof rawSupermarket !== 'string' ) throw new SupermarketValueNotValidException();
 
-  const supermarkets = [ new JumboSupermarketData(), new LiderSupermarketData() ];
   const supermarketFinder = new SupermarketFinder( supermarkets );
-  const productExtractor = new ProductExtractor( new PlaywrightSupermarketScrapper() );
+  const productExtractor = new ProductsExtractor( supermarketScrapper );
 
-  const products = await productExtractor.run( productName, supermarketFinder.run( rawSupermarket ), new LoggerConsole() );
+  const products = await productExtractor.run( productName, supermarketFinder.run( rawSupermarket ), logger );
 
   return new OkHttpResponse( products );
 } );
