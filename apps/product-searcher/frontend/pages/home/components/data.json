@@ -1,0 +1,486 @@
+{
+  "isOk": true,
+  "data": [
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sin Azúcar",
+          "detail": {
+              "normalPrice": "$1.990",
+              "bestPrice": "$1.990",
+              "unit": "2,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3895a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sin-Azúcar/3895"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sabor Original",
+          "detail": {
+              "normalPrice": "$1.990",
+              "bestPrice": "$1.990",
+              "unit": "2,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/278598a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sabor-Original/278598"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Light",
+          "detail": {
+              "normalPrice": "$1.990",
+              "bestPrice": "$1.990",
+              "unit": "2,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/7415a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Light/7415"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sin Azúcar",
+          "detail": {
+              "normalPrice": "$1.690",
+              "bestPrice": "$1.690",
+              "unit": "1,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3879a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sin-Azúcar/3879"
+      },
+      {
+          "id": "",
+          "name": "Pepsi",
+          "description": "Bebida Zero Sabor Cola",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/847350a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Pepsi-Bebida-Zero-Sabor-Cola/847350"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Light",
+          "detail": {
+              "normalPrice": "$1.600",
+              "bestPrice": "$1.600",
+              "unit": "1,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3931a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Light/3931"
+      },
+      {
+          "id": "",
+          "name": "Pepsi",
+          "description": "Bebida Sabor Cola",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3943a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Pepsi-Bebida-Sabor-Cola/3943"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sin Azúcar",
+          "detail": {
+              "normalPrice": "$2.520",
+              "bestPrice": "$2.520",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/5609a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sin-Azúcar/5609"
+      },
+      {
+          "id": "",
+          "name": "Sprite",
+          "description": "Bebida Zero Limón",
+          "detail": {
+              "normalPrice": "$1.690",
+              "bestPrice": "$1.690",
+              "unit": "1,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/4077a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Sprite-Bebida-Zero-Limón/4077"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sin Azúcar",
+          "detail": {
+              "normalPrice": "$740",
+              "bestPrice": "$740",
+              "unit": "350 ml"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3951a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sin-Azúcar/3951"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sabor Original",
+          "detail": {
+              "normalPrice": "$1.690",
+              "bestPrice": "$1.690",
+              "unit": "1,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3935a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sabor-Original/3935"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Tripack Original",
+          "detail": {
+              "normalPrice": "$6.410",
+              "bestPrice": "$6.410",
+              "unit": "3 de 3 L c/u"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/299643a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Tripack-Original/299643"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Light",
+          "detail": {
+              "normalPrice": "$600",
+              "bestPrice": "$600",
+              "unit": "350 ml"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3959a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Light/3959"
+      },
+      {
+          "id": "",
+          "name": "Chamyto",
+          "description": "Bebida Láctea Frambuesa Multipack",
+          "detail": {
+              "normalPrice": "$3.800",
+              "bestPrice": "$3.800",
+              "unit": "12 Un x 80 ml"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/916736a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Chamyto-Bebida-Láctea-Frambuesa-Multipack/916736"
+      },
+      {
+          "id": "",
+          "name": "Chamyto",
+          "description": "Bebida Láctea Manzana Multipack",
+          "detail": {
+              "normalPrice": "$3.800",
+              "bestPrice": "$3.800",
+              "unit": "12 Un x 80 ml"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/579705a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Chamyto-Bebida-Láctea-Manzana-Multipack/579705"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sabor Original",
+          "detail": {
+              "normalPrice": "$700",
+              "bestPrice": "$700",
+              "unit": "350 ml"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3963a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sabor-Original/3963"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sin Azúcar",
+          "detail": {
+              "normalPrice": "$6.100",
+              "bestPrice": "$6.100",
+              "unit": "4 de 1,5 L c/u"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/292735a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sin-Azúcar/292735"
+      },
+      {
+          "id": "",
+          "name": "Not milk",
+          "description": "Bebida Vegetal Blanca Baja En Grasas",
+          "detail": {
+              "normalPrice": "$1.950",
+              "bestPrice": "$1.950",
+              "unit": "1 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/1018334a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Not-Milk-Bebida-Vegetal-Blanca-Baja-En-Grasas/1018334"
+      },
+      {
+          "id": "",
+          "name": "Loncoleche",
+          "description": "Bebida Leche Láctea Yogu Yogu Mora Caja",
+          "detail": {
+              "normalPrice": "$400",
+              "bestPrice": "$400",
+              "unit": "200 g"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/298103a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Loncoleche-Bebida-Leche-Láctea-Yogu-Yogu-Mora-Caja/298103"
+      },
+      {
+          "id": "",
+          "name": "Sprite",
+          "description": "Bebida Sabor Original Limón",
+          "detail": {
+              "normalPrice": "$1.990",
+              "bestPrice": "$1.990",
+              "unit": "2,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/701995a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Sprite-Bebida-Sabor-Original-Limón/701995"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sabor Original",
+          "detail": {
+              "normalPrice": "$2.520",
+              "bestPrice": "$2.520",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3923a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sabor-Original/3923"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Tripack Original Naranja",
+          "detail": {
+              "normalPrice": "$6.410",
+              "bestPrice": "$6.410",
+              "unit": "3 de 3 L c/u"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/299457a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Tripack-Original-Naranja/299457"
+      },
+      {
+          "id": "",
+          "name": "Ecco",
+          "description": "Café Instantáneo De Cebada Tostada Tarro",
+          "detail": {
+              "normalPrice": "$1.950",
+              "bestPrice": "$1.950",
+              "unit": "170 g"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/2479a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Ecco-Café-Instantáneo-De-Cebada-Tostada-Tarro/2479"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Pack 3 Bebidas Sabor Limón Sin Azúcar Botella",
+          "detail": {
+              "normalPrice": "$6.410",
+              "bestPrice": "$6.410",
+              "unit": "3 de 3 L c/u"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/949561a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Pack-3-Bebidas-Sabor-Limón-Sin-Azúcar-Botella/949561"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Light",
+          "detail": {
+              "normalPrice": "$6.100",
+              "bestPrice": "$6.100",
+              "unit": "4 de 1,5 L c/u"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/292721a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Light/292721"
+      },
+      {
+          "id": "",
+          "name": "Orasi",
+          "description": "Bebida Vegetal de Soya",
+          "detail": {
+              "normalPrice": "$2.600",
+              "bestPrice": "$2.600",
+              "unit": "1 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/949485a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Orasi-Bebida-Vegetal-de-Soya/949485"
+      },
+      {
+          "id": "",
+          "name": "Monster",
+          "description": "Bebida Energética Regular",
+          "detail": {
+              "normalPrice": "$1.550",
+              "bestPrice": "$1.550",
+              "unit": "Lata 473 ml"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/539998a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Monster-Bebida-Energética-Regular/539998"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Light",
+          "detail": {
+              "normalPrice": "$2.520",
+              "bestPrice": "$2.520",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/3899a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Light/3899"
+      },
+      {
+          "id": "",
+          "name": "Powerade",
+          "description": "Bebida isotónica original Frozen Blast Botella",
+          "detail": {
+              "normalPrice": "$1.090",
+              "bestPrice": "$1.090",
+              "unit": "1 l"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/344591a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Powerade-Bebida-isotónica-original-Frozen-Blast-Botella/344591"
+      },
+      {
+          "id": "",
+          "name": "Gatorade",
+          "description": "Bebida Isotónica Sabor Cool Blue Botella",
+          "detail": {
+              "normalPrice": "$1.250",
+              "bestPrice": "$1.250",
+              "unit": "1 l"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/536716a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Gatorade-Bebida-Isotónica-Sabor-Cool-Blue-Botella/536716"
+      },
+      {
+          "id": "",
+          "name": "Kem",
+          "description": "Bebida Sabor Piña",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/4027a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Kem-Bebida-Sabor-Piña/4027"
+      },
+      {
+          "id": "",
+          "name": "Pepsi",
+          "description": "Bebida Zero Sabor Cola",
+          "detail": {
+              "normalPrice": "$1.600",
+              "bestPrice": "$1.600",
+              "unit": "2 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/849874a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Pepsi-Bebida-Zero-Sabor-Cola/849874"
+      },
+      {
+          "id": "",
+          "name": "Limón soda",
+          "description": "Bebida Zero Sabor Limón",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/279069a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Limón-Soda-Bebida-Zero-Sabor-Limón/279069"
+      },
+      {
+          "id": "",
+          "name": "Limón soda",
+          "description": "Bebida Sabor Limón",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/4023a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Limón-Soda-Bebida-Sabor-Limón/4023"
+      },
+      {
+          "id": "",
+          "name": "Canada dry",
+          "description": "Bebida Light Sabor Ginger Ale",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/4031a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Canada-Dry-Bebida-Light-Sabor-Ginger-Ale/4031"
+      },
+      {
+          "id": "",
+          "name": "Loncoleche",
+          "description": "Bebida Leche Láctea Yogu Yogu Frutilla Caja",
+          "detail": {
+              "normalPrice": "$400",
+              "bestPrice": "$400",
+              "unit": "200 g"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/298097a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Loncoleche-Bebida-Leche-Láctea-Yogu-Yogu-Frutilla-Caja/298097"
+      },
+      {
+          "id": "",
+          "name": "Pepsi",
+          "description": "Bebida Sabor Cola",
+          "detail": {
+              "normalPrice": "$5.490",
+              "bestPrice": "$5.490",
+              "unit": "3 Un"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/275850a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Pepsi-Bebida-Sabor-Cola/275850"
+      },
+      {
+          "id": "",
+          "name": "Coca-cola",
+          "description": "Bebida Sabor Original",
+          "detail": {
+              "normalPrice": "$6.100",
+              "bestPrice": "$6.100",
+              "unit": "4 de 1,5 l c/u"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/279379a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Coca-Cola-Bebida-Sabor-Original/279379"
+      },
+      {
+          "id": "",
+          "name": "Canada dry",
+          "description": "Bebida Light Sabor Ginger Ale",
+          "detail": {
+              "normalPrice": "$1.690",
+              "bestPrice": "$1.690",
+              "unit": "1,5 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/279051a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Canada-Dry-Bebida-Light-Sabor-Ginger-Ale/279051"
+      },
+      {
+          "id": "",
+          "name": "Canada dry",
+          "description": "Bebida Sabor Ginger Ale",
+          "detail": {
+              "normalPrice": "$2.390",
+              "bestPrice": "$2.390",
+              "unit": "3 L"
+          },
+          "image": "https://images.lider.cl/wmtcl?set=imageSize[medium],imageURL[file:/productos/4035a.jpg],options[progressive]&call=url[file:catalog/sizing.chain]&sink=format[jpg],options[progressive]",
+          "source": "https://www.lider.cl/supermercado/product/Canada-Dry-Bebida-Sabor-Ginger-Ale/4035"
+      }
+  ],
+  "message": "Ok"
+}

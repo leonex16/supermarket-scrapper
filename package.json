@@ -1,42 +1,14 @@
 {
-  "name": "supermarket-scrapper-front",
+  "name": "supermarket-scrapper",
   "version": "1.0.0",
-  "private": "true",
-  "description": "",
-  "workspaces": [
-    "application"
+  "description": "TODO",
+  "private": true,
+  "keywords": [
+    "TODO"
   ],
-  "engines": {
-    "npm": "8.3.1"
-  },
-  "scripts": {
-    "app:start": "npm run start --workspace=application",
-    "app:test": "npm run test --workspace=application",
-    "app:build": "npm run build --workspace=application",
-    "commit": "npx gitmoji-cli -c"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leonex16/supermarket-scrapper-front.git"
-  },
-  "author": "Leonel Espinoza Sotelo",
+  "author": "Leonel Espinoza Sotelo <leonelantonio569@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/leonex16/supermarket-scrapper-front/issues"
-  },
-  "homepage": "https://github.com/leonex16/supermarket-scrapper-front#readme",
-  "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.26",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.4.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.29.1",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "gitmoji-cli": "^4.8.0",
-    "typescript": "^4.5.5"
+  "dependencies": {
+    "@playwright/test": "^1.23.0"
   }
 }

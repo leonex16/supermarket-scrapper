@@ -1,0 +1,54 @@
+name: CI-Domain
+
+on:
+  push:
+    branches: [ leo-branch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: Development
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm i --force
+
+      - name: Run unit tests
+        run: npm run domain:test
+
+      - name: Run build
+        run: npm run infra:build
+
+      - name: Set up secret file
+        env:
+          DEBUG_PASSWORD: ${{ secrets.TELEGRAM_UPDATE_TO }}
+          DEBUG_SECRET_KEY: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          echo $DEBUG_PASSWORD
+          echo $DEBUG_SECRET_KEY
+
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_UPDATE_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            =====================================
+            github.workflow => ${{ github.workflow }}
+            =====================================
+            github.action => ${{ github.action }}
+            =====================================
+            github.event.name => ${{ github.event.name }}
+            =====================================
+            github.event.path => ${{ github.event.path }}
+            =====================================
+            github.workspace => ${{ github.workspace }}
+            =====================================
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}

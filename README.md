@@ -1,6 +1,6 @@
 # supermarket-scrapper-front
 
-## setup project 
+## Setup Project
 
 ` npm install --force `
 
@@ -14,7 +14,7 @@
 
 - **feat:** A commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
 
-- **triangular_flag_on_post:** Add, update, or remove feature flags. Not to be counfoused with :feat:, this emoji shoud be used while creating and developing the new feature, and :feat: when this new feature is ready to be merge into the main branch.
+- **build:** Add, update, or remove feature flags. Not to be counfoused with :feat:, this emoji shoud be used while creating and developing the new feature, and :feat: when this new feature is ready to be merge into the main branch.
 
 - **BREAKING CHANGE:** A commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
 
@@ -26,48 +26,11 @@
 
 - **arch:** Architecture change.
 
-### Examples
+- **package:** Add or update a library or package.
 
-a. **Commit message with description and breaking change footer**
+- **wrench:** Add or update configuration files.
 
-    feat: allow provided config object to extend other configs
-
-    BREAKING CHANGE: `extends` key in config file is now used for extending other config files
-
-b. **Commit message with ! to draw attention to breaking change**
-
-    feat!: send an email to the customer when a product is shipped
-
-c. **Commit message with scope and ! to draw attention to breaking change**
-
-    feat(api)!: send an email to the customer when a product is shipped
-
-d. **Commit message with both ! and BREAKING CHANGE footer**
-
-    chore!: drop support for Node 6
-
-    BREAKING CHANGE: use JavaScript features not available in Node 6.
-
-e. **Commit message with no body**
-
-    docs: correct spelling of CHANGELOG
-
-f. **Commit message with scope**
-
-    feat(lang): add polish language
-
-g. **Commit message with multi-paragraph body and multiple footers**
-
-    fix: prevent racing of requests
-
-    Introduce a request id and a reference to latest request. Dismiss
-    incoming responses other than from latest request.
-
-    Remove timeouts which were used to mitigate the racing issue but are
-    obsolete now.
-
-    Reviewed-by: Z
-    Refs: #123
+- **test_tube:** Add, update, or pass tests.
 
 ## Create a commit
 
@@ -87,4 +50,64 @@ g. **Commit message with multi-paragraph body and multiple footers**
 | docs            | :memo:                       |
 | arch            | :building_construction:      |
 | build           | :triangular_flag_on_post:    |
+| package         | :package:                    |
+| config          | :wrench:                     |
+| test            | :test_tube:                  |
 
+## Dependency Configuration
+
+## Nodemon
+
+Nodemon is a development tool that we have used to observe changes in typescript files.
+
+Sincewe use typescript, nodemon requires habing ts-node installed as a dependency.
+
+Ts-node, on each run, looks for the TS_NODE_PROJECT environment variable, which specefies the relative path of tsconfig file.
+
+This following command helps us to run nodemon with ts-node in a specefic layer, like Domain or Infrastructure.
+
+```bash
+TS_NODE_PROJECT=./tsconfig.json nodemon --exec ts-node --pretty ./apps/index.ts
+```
+
+### Module alias
+
+Library for create path aliases voiding relative path.
+For it to work properly, you must create the aliases in the main package.json, and, for each environment, specific the correspondly path.
+
+Ex:
+
+I want create two route aliases, for Domain layer and Infrastucture layer.
+
+- Development
+
+  ```json
+  {
+    "_moduleAliases": {
+      "@Domain": "src/Domain",
+      "@Infrastructure": "src/Infrastructure"
+    }
+  }
+  ```
+
+- Production
+
+  ```json
+  {
+    "_moduleAliases": {
+      "@Domain": "dist/Domain",
+      "@Infrastructure": "dist/Infrastructure"
+    }
+  }
+  ```
+  
+### Ladle
+
+Ladle is like storybook, you can create a library of proyect components
+
+```bash
+npx ladle serve --open none
+```
+
+IcePanel
+hawoni6698@weepm.com

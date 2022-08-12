@@ -1,0 +1,43 @@
+.scr-chips {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scr-chip {
+  position: relative;
+
+  outline: 1px solid #00000020;
+  box-shadow: 2px 2px 10px #00000020;
+  border-radius: var(--border-radius--lg);
+
+  font-size: var(--font-size--xs);
+  text-align: center;
+
+  padding: 4px 16px;
+  width: max-content;
+
+  cursor: pointer;
+  transition: all 200ms ease;
+  user-select: none;
+
+  &:hover {
+    outline: 1px solid #00000010;
+  }
+
+  &:active {
+    outline: 1px solid #00000030;
+  }
+
+  &--selected {
+    padding-left: 22px;
+
+    &::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      margin: auto 10px;
+    }
+  }
+}
